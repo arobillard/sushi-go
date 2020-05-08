@@ -1,0 +1,123 @@
+.material-icons {
+  font-family: 'Material Icons Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote,
+details,
+hr,
+fieldset,
+pre,
+table,
+caption,
+menu {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: $c-pink;
+  transition:
+    color .2s,
+    background-color .2s,
+    border-color .2s,
+    opacity .2s;
+}
+
+html {
+  line-height: 1.3;
+  font-family: Raleqay, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, [class*="headline-"], .font-alt {
+  font-family: 'Luckiest Guy', Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1, .headline-1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+h2, .headline-2 {
+  font-size: 2.5rem;
+}
+
+h3, .headline-3 {
+  font-size: 2rem;
+}
+
+h4, .headline-4 {
+  font-size: 1.5rem;
+}
+
+h5, .headline-5 {
+  font-size: 1.25rem;
+}
+
+h6, .headline-6 {
+  font-size: 1rem;
+}
+
+.subtitle-1 {
+  font-size: 1rem;
+}
+
+.subtitle-2 {
+  font-size: .875rem;
+}
+
+.body-1 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.body-2 {
+  font-size: .875rem;
+}

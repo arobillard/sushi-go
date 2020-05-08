@@ -1,0 +1,86 @@
+.gamecode-large {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.player-card-grid {
+  .player-card {
+    border-radius: 20px;
+    box-shadow: $s-grey-4;
+    transition:
+      transform .2s,
+      opacity .2s,
+      background-color .2s,
+      color .2s;
+    &.no-user {
+      // opacity: .25;
+      background-color: $c-grey-light;
+      transform: rotate(0)!important;
+    }
+    &-icon {
+      background-color: #fff;;
+      width: 45%;
+      height: 45%;
+      border-radius: 50%;
+      box-shadow: $s-grey-4;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-name {
+      font-size: 1.75rem;
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      bottom: .5rem;
+      text-shadow: $s-grey-2;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.host::after {
+      content: 'Host';
+      @extend .font-alt;
+      position: absolute;
+      top: -.25rem;
+      left: -.25rem;
+      transform: rotate(-12deg);
+      padding: .25rem .5rem 0;
+      border-radius: 5px;
+      box-shadow: $s-grey-4;
+      background-color: $c-pink;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+    &.host.bg-pink::after {
+      background-color: $c-purple;
+    }
+  }
+  > div:first-child .player-card {
+    transform: rotate(-2deg);
+  }
+  > div:nth-child(2) .player-card {
+    transform: rotate(2deg);
+  }
+  > div:nth-child(3) .player-card {
+    transform: rotate(1deg);
+  }
+  > div:nth-child(4) .player-card {
+    transform: rotate(2deg);
+  }
+  > div:nth-child(5) {
+    margin-left: 33.3333%;
+    .player-card {
+      transform: rotate(-2deg);
+    }
+  }
+  > div:nth-child(6) .player-card {
+    transform: rotate(-2deg);
+  }
+  > div:nth-child(7) .player-card {
+    transform: rotate(5deg);
+  }
+  > div:nth-child(8) .player-card {
+    transform: rotate(-1deg);
+  }
+}

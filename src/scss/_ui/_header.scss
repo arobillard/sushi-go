@@ -1,0 +1,47 @@
+.masthead {
+  background-color: $c-purple;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .16);
+  @extend .font-alt;
+  color: #fff;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      @extend h1;
+      color: #fff;
+      text-shadow: $s-purple-4;
+      box-shadow: $s-grey-4;
+      background-color: $c-pink;
+      padding: 1rem 3rem .25rem;
+      display: inline-block;
+      margin-bottom: -1rem;
+      border-radius: 0 0 1.25rem 1.25rem;
+    }
+    .subtitle {
+      font-size: 2rem;
+      text-shadow: $s-pink-2;
+      margin-bottom: -.5rem;
+    }
+    .gamecode-wrap {
+      font-size: 1.5rem;
+      text-shadow: $s-pink-2;
+      .gamecode {
+        display: inline-block;
+        font-size: 2rem;
+        background-color: #fff;
+        color: $c-pink;
+        text-shadow: $s-purple-2;
+        box-shadow: $s-pink-2;
+        padding: .5rem .75rem 0;
+        border-radius: 10px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}

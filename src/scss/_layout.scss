@@ -1,0 +1,680 @@
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
+
+html {
+  box-sizing: border-box;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+template {
+  display: none;
+}
+
+details {
+  cursor: pointer;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+img {
+  border: 0;
+}
+
+.img-flex,
+.img-flex img {
+  display: block;
+  width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+svg.img-flex {
+  width: 100%;
+  height: 100%;
+}
+
+.icon  {
+  display: flex;
+  position: relative;
+  background: transparent none no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  svg, img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.icon-more-menu {
+  @extend .icon;
+  width: 12px;
+}
+// Lists
+
+.list-group, .list-group-flex {
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: block;
+  }
+}
+
+.list-group-flex {
+  display: flex;
+}
+
+.mdc-list {
+  padding: .5rem;
+  > li, > a, > button {
+    display: flex;
+    padding: .5rem;
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+    i {
+      margin-right: 2rem;
+    }
+  }
+}
+
+// Show Hide
+
+.hidden {
+  display: none;
+}
+
+// Buttons
+
+button {
+  -webkit-appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  writing-mode: horizontal-tb !important;
+  color: inherit;
+  text-indent: 0px;
+  cursor: pointer;
+  background-color: inherit;
+  margin: 0;
+  font: inherit;
+  padding: 0;
+  border-width: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: .55em 1em .25em;
+  border-radius: 10px;
+  background-color: $c-purple;
+  font-family: 'Luckiest Guy', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: $s-grey;
+  box-shadow: $s-pink-2;
+  font-weight: bold;
+  // border: 3px solid $c-red-dark;
+  color: #fff;
+  transition:
+    background-color .2s,
+    box-shadow .2s;
+  &:hover, &:focus {
+    background-color: $c-pink;
+    box-shadow: $s-purple-2;
+  }
+  &-medium {
+    font-size: 1.5rem;
+  }
+  &-pink {
+    background-color: $c-pink;
+    box-shadow: $s-purple-2;
+    &:hover, &:focus {
+      background-color: $c-purple;
+      box-shadow: $s-pink-2;
+    }
+  }
+  &-no-shadow {
+    box-shadow: none;
+  }
+}
+
+// Forms
+
+input {
+  width: 100%;
+  display: block;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  border: 3px solid $c-purple;
+}
+
+// Spacing
+.island {
+  padding: 1rem;
+}
+
+.island-1-2 {
+  padding: .5rem;
+}
+
+.island-1-1-4 {
+  padding: 1.25rem;
+}
+
+.island-1-1-2 {
+  padding: 1.5rem;
+}
+
+.island-2 {
+  padding: 2rem;
+}
+
+.gutter {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.gutter-1-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.gutter-1-1-4 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.gutter-1-1-2 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.gutter-2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.pad-t, .pad-t-b {
+  padding-top: 1rem;
+}
+
+.pad-t-1-2, .pad-t-b-1-2 {
+  padding-top: .5rem;
+}
+
+.pad-t-1-1-4, .pad-t-b-1-1-4 {
+  padding-top: 1.25rem;
+}
+.pad-t-1-4, .pad-t-b-1-4 {
+  padding-top: .25rem;
+}
+
+.pad-t-1-1-2, .pad-t-b-1-1-2 {
+  padding-top: 1.5rem;
+}
+
+.pad-t-2, .pad-t-b-2 {
+  padding-top: 2rem;
+}
+
+.pad-t-4, .pad-t-b-4 {
+  padding-top: 4rem;
+}
+
+.pad-t-8, .pad-t-b-8 {
+  padding-top: 8rem;
+}
+
+.pad-b, .pad-t-b {
+  padding-bottom: 1rem;
+}
+
+.pad-b-1-2, .pad-t-b-1-2 {
+  padding-bottom: .5rem;
+}
+
+.pad-b-1-4, .pad-t-b-1-4 {
+  padding-bottom: .25rem;
+}
+
+.pad-b-1-1-4, .pad-t-b-1-1-4 {
+  padding-bottom: 1.25rem;
+}
+
+.pad-b-1-1-2, .pad-t-b-1-1-2 {
+  padding-bottom: 1.5rem;
+}
+
+.pad-b-2, .pad-t-b-2 {
+  padding-bottom: 2rem;
+}
+
+.pad-b-4, .pad-t-b-4 {
+  padding-bottom: 4rem;
+}
+
+.pad-b-8, .pad-t-b-8 {
+  padding-bottom: 8rem;
+}
+
+.push-0 {
+  margin-bottom: 0;
+}
+
+.push {
+  margin-bottom: 1rem;
+}
+
+.push-1-2 {
+  margin-bottom: .5rem;
+}
+
+.push-1-4 {
+  margin-bottom: .25rem;
+}
+
+.push-1-1-4 {
+  margin-bottom: 1.25rem;
+}
+
+.push-1-1-2 {
+  margin-bottom: 1.5rem;
+}
+
+.push-2 {
+  margin-bottom: 2rem;
+}
+
+.push-l {
+  margin-left: 1rem;
+}
+
+.push-l-1-2 {
+  margin-left: .5rem;
+}
+
+.push-l-1-1-4 {
+  margin-left: 1.25rem;
+}
+
+.push-l-1-1-2 {
+  margin-left: 1.5rem;
+}
+
+.push-l-2 {
+  margin-left: 2rem;
+}
+
+.push-r {
+  margin-right: 1rem;
+}
+
+.push-r-1-2 {
+  margin-right: .5rem;
+}
+
+.push-r-1-1-4 {
+  margin-right: 1.25rem;
+}
+
+.push-r-1-1-2 {
+  margin-right: 1.5rem;
+}
+
+.push-r-2 {
+  margin-right: 2rem;
+}
+
+.spread-top {
+  margin-top: auto;
+}
+
+.spread-right {
+  margin-right: auto;
+}
+
+.spread-bottom {
+  margin-bottom: auto;
+}
+
+.spread-left {
+  margin-left: auto;
+}
+
+.page-content {
+  padding-bottom: 7rem;
+}
+
+// Width & Height
+
+.w-1 {
+  width: 100%;
+}
+
+.w-1-2 {
+  width: 50%;
+}
+
+.w-1-3 {
+  width: 33.3333%;
+}
+
+.w-2-3 {
+  width: 66.6666%;
+}
+
+.w-1-4 {
+  width: 25%;
+}
+
+.w-3-4 {
+  width: 75%;
+}
+
+.w-1-5 {
+  width: 20%;
+}
+
+.w-2-5 {
+  width: 40%;
+}
+
+.w-3-5 {
+  width: 60%;
+}
+
+.w-4-5 {
+  width: 80%;
+}
+
+.h-1 {
+  height: 100%;
+}
+
+.h-1-2 {
+  height: 50%;
+}
+
+.h-1-3 {
+  height: 33.3333%;
+}
+
+.h-2-3 {
+  height: 66.6666%;
+}
+
+.h-1-4 {
+  height: 25%;
+}
+
+.h-3-4 {
+  height: 75%;
+}
+
+.h-1-5 {
+  height: 20%;
+}
+
+.h-2-5 {
+  height: 40%;
+}
+
+.h-3-5 {
+  height: 60%;
+}
+
+.h-4-5 {
+  height: 80%;
+}
+
+// Wrapper
+
+.wrapper {
+  width: 100%;
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Grids
+
+.grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+  .xs-1 {
+    width: 100%;
+  }
+  .xs-1-2 {
+    width: 50%;
+  }
+  @media only screen and (min-width: 38em) {
+  
+    .m-1-2 {
+      width: 50%;
+    }
+  
+    .m-1-3 {
+      width: 33.3333%;
+    }
+  
+    .m-2-3 {
+      width: 66.6666%;
+    }
+  
+  }
+}
+.grid-flex-v-middle {
+  @extend .grid-flex;
+  align-items: center;
+}
+.grid-flex-v-bottom {
+  @extend .grid-flex;
+  align-items: flex-end;
+}
+.grid-flex-h-split {
+  @extend .grid-flex;
+  justify-content: space-between;
+}
+.grid-flex-h-flip {
+  @extend .grid-flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-c-gap {
+  column-gap: 1rem;
+}
+
+.grid-c-gap-2 {
+  column-gap: 2rem;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .grid-m-1-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media only screen and (min-width: 60em) {
+
+  .grid-l-1-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-l-1-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-l-1-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+// Positions
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+// Displays
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-children-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Embeds
+
+.embed {
+  position: relative;
+}
+
+.embed-1by1 {
+  @extend .embed;
+  padding-top: 100%;
+}
+
+// Opacity
+
+.opacity-1-2 {
+  opacity: .5;
+}
+
+// Main
+
+main {
+  background-image: url('../images/bg-waves.svg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+}
+
+// Pop ups
+
+.pop-up {
+  border-radius: 20px;
+  box-shadow: $s-grey-4;
+}
+
+.pop-up-join-game {
+  @extend .pop-up;
+  max-width: 35em;
+  background-color: $c-pink;
+  color: #fff;
+  h2 {
+    text-shadow: $s-purple-4;
+  }
+  .grid-flex {
+    border: 3px solid $c-purple;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  input, .btn{
+    border-radius: 0;
+    border: 0;
+    @extend .font-alt;
+  }
+  input {
+    padding: .75rem 1rem .125rem;
+    font-size: 2rem;
+    color: $c-pink;
+    text-shadow: $s-purple;
+  }
+}
+

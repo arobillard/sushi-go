@@ -1,0 +1,129 @@
+$color-list: (
+  purple: $c-purple,
+  green: $c-green,
+  turquoise: $c-turquoise,
+  yellow: $c-yellow,
+  cyan: $c-cyan,
+  navy: $c-navy,
+  pink: $c-pink,
+  red: $c-red
+);
+
+$target-list: (
+  text: color,
+  bg: background-color
+);
+
+@each $cName, $cValue in $color-list {
+  @each $tName, $tValue in $target-list {
+
+    .#{$tName}-#{$cName} {
+      #{$tValue}: $cValue;
+    }
+
+    .#{$tName}-#{$cName}-dark {
+      #{$tValue}: darken($cValue, 20%);
+    }
+
+    .#{$tName}-#{$cName}-light {
+      #{$tValue}: lighten($cValue, 20%);
+    }
+
+  }
+}
+
+.text-fff {
+  color: #fff;
+}
+
+.bg-fff {
+  background-color: #fff;
+}
+
+.text-000 {
+  color: #000;
+}
+
+.bg-000 {
+  background-color: #000;
+}
+
+.text-grey {
+  color: $c-grey;
+}
+
+.bg-grey {
+  background-color: $c-grey;
+}
+
+.text-grey-light {
+  color: $c-grey-light;
+}
+
+.bg-grey-light {
+  background-color: $c-grey-light;
+}
+
+.text-grey-lightest {
+  color: $c-grey-lightest;
+}
+
+.bg-grey-lightest {
+  background-color: $c-grey-lightest;
+}
+
+.text-grey-dark {
+  color: $c-grey-dark;
+}
+
+.bg-grey-dark {
+  background-color: $c-grey-dark;
+}
+
+.shadow-t-purple {
+  text-shadow: $s-purple;
+}
+
+.shadow-t-purple-2 {
+  text-shadow: $s-purple-2;
+}
+
+.shadow-t-purple-4 {
+  text-shadow: $s-purple-4;
+}
+
+.shadow-b-purple {
+  text-shadow: $s-purple;
+}
+
+.shadow-b-purple-2 {
+  text-shadow: $s-purple-2;
+}
+
+.shadow-b-purple-4 {
+  text-shadow: $s-purple-4;
+}
+
+.shadow-t-pink {
+  text-shadow: $s-pink;
+}
+
+.shadow-t-pink-2 {
+  text-shadow: $s-pink-2;
+}
+
+.shadow-t-pink-4 {
+  text-shadow: $s-pink-4;
+}
+
+.shadow-b-pink {
+  text-shadow: $s-pink;
+}
+
+.shadow-b-pink-2 {
+  text-shadow: $s-pink-2;
+}
+
+.shadow-b-pink-4 {
+  text-shadow: $s-pink-4;
+}

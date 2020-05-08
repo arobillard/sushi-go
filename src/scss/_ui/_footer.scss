@@ -1,0 +1,21 @@
+.footer {
+  background-color: $c-purple;
+  color: #fff;
+  text-align: center;
+  .logo {
+    text-shadow: $s-pink-2;
+  }
+  a {
+    color: #fff;
+    text-decoration: underline;
+    &:hover, &:focus {
+      color: $c-pink;
+    }
+  }
+  @media only screen and (min-width: 38em) {
+    text-align: left;
+    .grid-flex > div:last-child {
+      text-align: right;
+    }
+  }
+}

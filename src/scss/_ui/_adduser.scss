@@ -1,0 +1,66 @@
+.pop-up-add-user {
+  @extend .pop-up;
+  max-width: 35em;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 3px solid $c-purple;
+  h2 {
+    color: $c-purple;
+    text-shadow: $s-pink-2;
+  }
+  .grid-flex {
+    border: 3px solid $c-purple;
+    border-radius: 10px;
+    overflow: hidden;
+    input, .btn{
+      border-radius: 0;
+      border: 0;
+      @extend .font-alt;
+      width: 33.3333%;
+    }
+    input {
+      padding: .75rem 1rem .125rem;
+      font-size: 1.75rem;
+      color: $c-pink;
+      text-shadow: $s-purple;
+      width: 66.6666%;
+    }
+  }
+  .grid-colors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .color-swatch {
+      padding: 1rem 0 2rem;
+      input {
+        display: none;
+      }
+      label {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        box-shadow: $s-grey-2;
+        display: inline-block;
+        opacity: .5;
+        transition:
+        transform .2s,
+          opacity .2s;
+        &:hover {
+          cursor: pointer;
+        }
+        span {
+          display: none;
+        }
+      }
+      input:checked + label {
+        opacity: 1;
+        transform: scale(1.25)
+      }
+      input:disabled + label {
+        opacity: .25;
+        transform: scale(.75);
+        background-color: $c-grey;
+      }
+    }
+  }
+}
