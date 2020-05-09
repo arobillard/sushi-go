@@ -2,6 +2,8 @@
   background-color: $c-purple;
   color: #fff;
   text-align: center;
+  position: relative;
+  z-index: 2;
   .logo {
     text-shadow: $s-pink-2;
   }

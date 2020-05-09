@@ -1,34 +1,36 @@
 import React from 'react';
+import base from '../base';
 import Header from './ui-elements/Header'
 import Footer from './ui-elements/Footer'
 import { cards, deck } from '../cardData'
 import Lobby from './ui-elements/Lobby';
+import GameBoard from '../scss/_ui/GameBoard';
 
 class App extends React.Component {
 
   state = {
     deck: {},
     users: {
-      Adam: {
-        userName: "Adam",
-        color: "purple"
-      },
-      Hannah: {
-        userName: "Hannah",
-        color: "green"
-      },
-      Patti: {
-        userName: "Patti",
-        color: "turquoise"
-      },
-      Hugh: {
-        userName: "Hugh",
-        color: "yellow"
-      },
-      Tim: {
-        userName: "Tim",
-        color: "cyan"
-      },
+      // Adam: {
+      //   userName: "Adam",
+      //   color: "purple"
+      // },
+      // Hannah: {
+      //   userName: "Hannah",
+      //   color: "green"
+      // },
+      // Patti: {
+      //   userName: "Patti",
+      //   color: "turquoise"
+      // },
+      // Hugh: {
+      //   userName: "Hugh",
+      //   color: "yellow"
+      // },
+      // Tim: {
+      //   userName: "Tim",
+      //   color: "cyan"
+      // },
       // Caitlin: {
       //   userName: "Caitlin",
       //   color: "navy"
@@ -42,37 +44,54 @@ class App extends React.Component {
       //   color: "red"
       // },
     },
-    claimedColors: {
-      purple: true,
-      green: true,
-      turquoise: true,
-      yellow: true,
-      cyan: true,
-      navy: false,
-      pink: false,
-      red: false
-    },
-    localUser: null,
-    gameStart: false,
-    round: 1
+    localUser: '',
+    gameStart: {},
+    round: {}
   }
 
   componentDidMount() {
     const localStorageRef = localStorage.getItem(this.props.match.params.gamecode); //first reinstate localstorage
-    const localUser = JSON.parse(localStorage.getItem('localUser')); //first reinstate localstorage
     if (localStorageRef) {
       const savedState = JSON.parse(localStorageRef);
-      console.log(savedState)
       this.setState({
         deck: savedState.deck,
         users: savedState.users,
-        claimedColors: savedState.claimedColors,
-        localUser: localUser,
         gameStart: savedState.gameStart,
         round: savedState.round,
       })
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
+        context: this,
+        state: 'users'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameStart`, {
+        context: this,
+        state: 'gameStart'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/round`, {
+        context: this,
+        state: 'round'
+      });
+    } else {
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
+        context: this,
+        state: 'users'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameStart`, {
+        context: this,
+        state: 'gameStart'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/round`, {
+        context: this,
+        state: 'round'
+      });
+      console.log(this.state.gameStart)
+      if (this.state.gameStart === {}) {
+        console.log('dumb gamestart')
+      }
     }
     // this.setState({ deck: deck() });
+    const localUser = JSON.parse(localStorage.getItem('localUser'));
+    this.setState({ localUser })
   }
 
   componentDidUpdate() {
@@ -81,29 +100,77 @@ class App extends React.Component {
   }
 
   addUser = (newUser) => {
+    const userAmount = Object.keys(this.state.users).length;
     const users = {...this.state.users};
-    const claimedColors = {...this.state.claimedColors}
-    users[newUser.userName] = newUser;
-    claimedColors[newUser.color] = true;
+    if (userAmount === 0) {
+      const user = newUser;
+      newUser.host = true;
+      users[newUser.userName] = newUser;
+      this.setState({
+        users: users,
+        localUser: newUser.userName,
+      });
+    } else {
+      users[newUser.userName] = newUser;
+      this.setState({
+        users: users,
+        localUser: newUser.userName,
+      });
+    }
+  }
+
+  deleteUser = (user) => {
+    const users = {...this.state.users};
+    if (users[user].host === true) {
+      users[user] = null;
+      const userKeys = Object.keys(users);
+      console.log(userKeys);
+      if (users[userKeys[1]] !== undefined) {
+        if (users[userKeys[0]] === null) {
+          users[userKeys[1]].host = true;
+        } else {
+          users[userKeys[0]].host = true;
+        }
+      }
+      this.setState({ users })
+    } else {
+      users[user] = null;
+      this.setState({ users })
+    }
+  }
+
+  startGame = () => {
     this.setState({
-      users: users,
-      localUser: newUser.userName,
-      claimedColors: claimedColors
-    });
+      gameStart: true,
+      round: 1
+     })
+  }
+
+  subtitleDisplay = () => {
+    if (typeof this.state.gameStart === "object") {
+      return 'Lobby'
+    } else {
+      return `Round ${this.state.round}`
+    }
   }
 
   gameBoardDisplay = () => {
     const gamecode = this.props.match.params.gamecode;
-    if (this.state.gameStart === true) {
-
+    const users = Object.keys(this.state.users);
+    const localUser = this.state.localUser;
+    if (this.state.gameStart === true && users.includes(localUser)) {
+      return (
+        <GameBoard />
+      )
     } else {
       return (
         <Lobby
           gamecode={gamecode}
           users={this.state.users}
           addUser={this.addUser}
+          deleteUser={this.deleteUser}
           localUser={this.state.localUser}
-          claimedColors={this.state.claimedColors}
+          startGame={this.startGame}
         />
       )
     }
@@ -114,10 +181,10 @@ class App extends React.Component {
     return (
       <>
         <Header
-          subtitle="Lobby"
+          subtitle={this.subtitleDisplay()}
           gamecode={gamecode}
         />
-        <main id="main" role="main" className="flex pad-t-8 pad-b-4">
+        <main id="main" role="main" className="flex pad-t-6">
           {this.gameBoardDisplay()}
         </main>
         <Footer />

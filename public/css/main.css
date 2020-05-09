@@ -23,6 +23,30 @@
   background-color: #8956b6;
 }
 
+.text-purple-faded {
+  color: #ece4f4;
+}
+
+.text-purple-faded-dark {
+  color: #bb9dd5;
+}
+
+.text-purple-faded-light {
+  color: white;
+}
+
+.bg-purple-faded {
+  background-color: #ece4f4;
+}
+
+.bg-purple-faded-dark {
+  background-color: #bb9dd5;
+}
+
+.bg-purple-faded-light {
+  background-color: white;
+}
+
 .text-green {
   color: #6ea31d;
 }
@@ -45,6 +69,30 @@
 
 .bg-green-light {
   background-color: #a3de48;
+}
+
+.text-green-faded {
+  color: #fafdf5;
+}
+
+.text-green-faded-dark {
+  color: #ceee9e;
+}
+
+.text-green-faded-light {
+  color: white;
+}
+
+.bg-green-faded {
+  background-color: #fafdf5;
+}
+
+.bg-green-faded-dark {
+  background-color: #ceee9e;
+}
+
+.bg-green-faded-light {
+  background-color: white;
 }
 
 .text-turquoise {
@@ -71,6 +119,30 @@
   background-color: #0bd7d3;
 }
 
+.text-turquoise-faded {
+  color: #b3fbfa;
+}
+
+.text-turquoise-faded-dark {
+  color: #52f6f3;
+}
+
+.text-turquoise-faded-light {
+  color: white;
+}
+
+.bg-turquoise-faded {
+  background-color: #b3fbfa;
+}
+
+.bg-turquoise-faded-dark {
+  background-color: #52f6f3;
+}
+
+.bg-turquoise-faded-light {
+  background-color: white;
+}
+
 .text-yellow {
   color: #ebb344;
 }
@@ -93,6 +165,30 @@
 
 .bg-yellow-light {
   background-color: #f5d8a0;
+}
+
+.text-yellow-faded {
+  color: white;
+}
+
+.text-yellow-faded-dark {
+  color: #f5daa3;
+}
+
+.text-yellow-faded-light {
+  color: white;
+}
+
+.bg-yellow-faded {
+  background-color: white;
+}
+
+.bg-yellow-faded-dark {
+  background-color: #f5daa3;
+}
+
+.bg-yellow-faded-light {
+  background-color: white;
 }
 
 .text-cyan {
@@ -119,6 +215,30 @@
   background-color: #5cc3fd;
 }
 
+.text-cyan-faded {
+  color: white;
+}
+
+.text-cyan-faded-dark {
+  color: #9adafe;
+}
+
+.text-cyan-faded-light {
+  color: white;
+}
+
+.bg-cyan-faded {
+  background-color: white;
+}
+
+.bg-cyan-faded-dark {
+  background-color: #9adafe;
+}
+
+.bg-cyan-faded-light {
+  background-color: white;
+}
+
 .text-navy {
   color: #181c75;
 }
@@ -141,6 +261,30 @@
 
 .bg-navy-light {
   background-color: #2930ca;
+}
+
+.text-navy-faded {
+  color: #cbcdf4;
+}
+
+.text-navy-faded-dark {
+  color: #767be3;
+}
+
+.text-navy-faded-light {
+  color: white;
+}
+
+.bg-navy-faded {
+  background-color: #cbcdf4;
+}
+
+.bg-navy-faded-dark {
+  background-color: #767be3;
+}
+
+.bg-navy-faded-light {
+  background-color: white;
 }
 
 .text-pink {
@@ -167,6 +311,30 @@
   background-color: #da91c6;
 }
 
+.text-pink-faded {
+  color: white;
+}
+
+.text-pink-faded-dark {
+  color: #e5b3d8;
+}
+
+.text-pink-faded-light {
+  color: white;
+}
+
+.bg-pink-faded {
+  background-color: white;
+}
+
+.bg-pink-faded-dark {
+  background-color: #e5b3d8;
+}
+
+.bg-pink-faded-light {
+  background-color: white;
+}
+
 .text-red {
   color: #c12936;
 }
@@ -189,6 +357,30 @@
 
 .bg-red-light {
   background-color: #e16f79;
+}
+
+.text-red-faded {
+  color: white;
+}
+
+.text-red-faded-dark {
+  color: #edabb1;
+}
+
+.text-red-faded-light {
+  color: white;
+}
+
+.bg-red-faded {
+  background-color: white;
+}
+
+.bg-red-faded-dark {
+  background-color: #edabb1;
+}
+
+.bg-red-faded-light {
+  background-color: white;
 }
 
 .text-fff {
@@ -374,10 +566,15 @@ html {
   font-family: Raleqay, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
+h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .card-panels, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
   font-family: "Luckiest Guy", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   letter-spacing: 1px;
   font-weight: 400;
+}
+
+strong.font-alt, .pop-up-join-game strong.btn, strong.card-panels, .pop-up-add-user .grid-flex strong.btn, .pop-up-add-user .grid-flex-h-flip strong.btn, .pop-up-add-user .grid-flex-h-split strong.btn, .pop-up-add-user .grid-flex-v-bottom strong.btn, .pop-up-add-user .grid-flex-v-middle strong.btn, .player-card-grid strong.player-card.host::after, strong.masthead, b.font-alt, .pop-up-join-game b.btn, b.card-panels, .pop-up-add-user .grid-flex b.btn, .pop-up-add-user .grid-flex-h-flip b.btn, .pop-up-add-user .grid-flex-h-split b.btn, .pop-up-add-user .grid-flex-v-bottom b.btn, .pop-up-add-user .grid-flex-v-middle b.btn, .player-card-grid b.player-card.host::after, b.masthead, em.font-alt, .pop-up-join-game em.btn, em.card-panels, .pop-up-add-user .grid-flex em.btn, .pop-up-add-user .grid-flex-h-flip em.btn, .pop-up-add-user .grid-flex-h-split em.btn, .pop-up-add-user .grid-flex-v-bottom em.btn, .pop-up-add-user .grid-flex-v-middle em.btn, .player-card-grid em.player-card.host::after, em.masthead, i.font-alt, .pop-up-join-game i.btn, i.card-panels, .pop-up-add-user .grid-flex i.btn, .pop-up-add-user .grid-flex-h-flip i.btn, .pop-up-add-user .grid-flex-h-split i.btn, .pop-up-add-user .grid-flex-v-bottom i.btn, .pop-up-add-user .grid-flex-v-middle i.btn, .player-card-grid i.player-card.host::after, i.masthead {
+  font-weight: normal;
+  font-style: normal;
 }
 
 h2, h3, h4, h5, h6 {
@@ -430,6 +627,8 @@ h6, .headline-6 {
   background-color: #553274;
   color: #fff;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 .footer .logo {
   text-shadow: 2px 2px 0 #c0459f;
@@ -530,6 +729,17 @@ h6, .headline-6 {
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
   left: 50%;
   transform: translateX(-50%);
+}
+.player-card-grid .player-card-remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.player-card-grid .player-card-remove i {
+  font-style: normal;
 }
 .player-card-grid .player-card.host::after {
   content: "Host";
@@ -636,6 +846,138 @@ h6, .headline-6 {
   opacity: 0.25;
   transform: scale(0.75);
   background-color: #aaa;
+}
+
+.card-panels {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.card-panels .local-user-cards .panel-wrap {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+  height: 13.125rem;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: hidden;
+}
+.card-panels .local-user-cards .panel-wrap .panel-score {
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.card-panels .local-user-cards .panel-wrap .panel-score .score {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.card-panels .local-user-cards .panel-wrap .panel-score .host-badge {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5rem;
+  transform: rotate(-15deg);
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards {
+  position: relative;
+  flex-grow: 2;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards h2 {
+  width: 100%;
+  font-size: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  opacity: 0.5;
+}
+.card-panels .local-user-cards .panel-wrap .panel-dessert {
+  padding: 1rem;
+  width: 10rem;
+}
+.card-panels .local-user-cards .panel-wrap .panel-dessert h3 {
+  font-size: 1.75rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.card-panels .user-cards {
+  display: flex;
+  flex-grow: 2;
+}
+.card-panels .user-cards .card-column {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+}
+.card-panels .user-cards .card-column:not(:last-child) {
+  margin-right: 1rem;
+}
+.card-panels .user-cards .card-column .panel-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 0.5rem 0.25rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.card-panels .user-cards .card-column .panel-score h2 {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+.card-panels .user-cards .card-column .panel-score .score {
+  font-size: 1.5rem;
+}
+.card-panels .user-cards .card-column .panel-cards {
+  padding: 0.5rem;
+  flex-grow: 2;
+}
+.card-panels .user-cards .card-column .panel-dessert {
+  padding: 0.5rem;
+  height: 4rem;
+}
+.card-panels .user-cards .card-column .sushi-family {
+  display: flex;
+}
+.card-panels .user-cards .card-column .sushi-family .card-sushi {
+  position: relative;
+  width: 2.75rem;
+  height: 4rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-panels .user-cards .card-column .sushi-family .card-sushi-sizer {
+  padding-top: 150%;
+  position: relative;
+}
+.card-panels .user-cards .card-column .sushi-family .card-sushi .card-points {
+  font-size: 1.75rem;
+}
+.card-panels .user-cards .card-column .sushi-family .card-sushi::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: #777;
+}
+.card-panels .user-cards .card-column .sushi-family.nigiri .card-sushi {
+  background-color: #ebb344;
 }
 
 @-moz-viewport {
@@ -926,6 +1268,10 @@ input {
   padding-top: 4rem;
 }
 
+.pad-t-6, .pad-t-b-6 {
+  padding-top: 6rem;
+}
+
 .pad-t-8, .pad-t-b-8 {
   padding-top: 8rem;
 }
@@ -956,6 +1302,10 @@ input {
 
 .pad-b-4, .pad-t-b-4 {
   padding-bottom: 4rem;
+}
+
+.pad-b-6, .pad-t-b-6 {
+  padding-bottom: 6rem;
 }
 
 .pad-b-8, .pad-t-b-8 {

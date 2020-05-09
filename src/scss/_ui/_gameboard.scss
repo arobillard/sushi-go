@@ -1,0 +1,136 @@
+.card-panels {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  @extend .font-alt;
+  .local-user-cards {
+    .panel-wrap {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      color: #fff;
+      height: 13.125rem;
+      box-shadow: $s-grey-4;;
+      border-radius: 1.25rem 1.25rem 0 0;
+      overflow: hidden;
+      .panel-score {
+        width: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        .score {
+          font-size: 2.5rem;
+          text-shadow: $s-grey-2;
+        }
+        .host-badge {
+          font-size: 2rem;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          box-shadow: $s-grey-4;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: .5rem;
+          transform: rotate(-15deg);
+        }
+      }
+      .panel-cards {
+        position: relative;
+        flex-grow: 2;
+        h2 {
+          width: 100%;
+          font-size: 10rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -40%);
+          opacity: .5;
+        }
+      }
+      .panel-dessert {
+        padding: 1rem;
+        width: 10rem;
+        h3 {
+          font-size: 1.75rem;
+          text-shadow: $s-grey-2;
+        }
+      }
+    }
+  }
+  .user-cards {
+    display: flex;
+    flex-grow: 2;
+    .card-column {
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      box-shadow: $s-grey-4;
+      overflow: hidden;
+      width: 100%;
+      color: #fff;
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      .panel-score {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .75rem .5rem .25rem;
+        text-shadow: $s-grey-2;
+        h2 {
+          font-size: 1.25rem;
+          margin-right: .5rem
+        }
+        .score {
+          font-size: 1.5rem;
+        }
+      }
+      .panel-cards {
+        padding: .5rem;
+        flex-grow: 2;
+      }
+      .panel-dessert {
+        padding: .5rem;
+        height: 4rem;
+      }
+      .sushi-family {
+        display: flex;
+        .card-sushi {
+          position: relative;
+          width: 2.75rem;
+          height: 4rem;
+          border-radius: 5px;
+          overflow: hidden;
+          box-shadow: $s-grey-2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &-sizer {
+            padding-top: 150%;
+            position: relative;
+          }
+          .card-points {
+            font-size: 1.75rem;
+          }
+          &::after {
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background-color: $c-grey-cards;
+          }
+        }
+        &.nigiri {
+          .card-sushi {
+            background-color: $c-yellow;
+          }
+        }
+      }
+    }
+  }
+}

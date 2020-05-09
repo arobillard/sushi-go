@@ -38,6 +38,17 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    &-remove {
+      position: absolute;
+      top: .5rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 1.5rem;
+      text-shadow: $s-grey-2;
+      i {
+        font-style: normal;
+      }
+    }
     &.host::after {
       content: 'Host';
       @extend .font-alt;
