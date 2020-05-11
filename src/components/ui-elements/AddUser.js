@@ -6,7 +6,8 @@ class AddUser extends React.Component {
     e.preventDefault();
     const newUser = {
       userName: e.target.userName.value,
-      color: e.target.color.value
+      color: e.target.color.value,
+      cards: {}
     }
     const userCount = Object.keys(this.props.users).length;
     const users = this.props.users;
@@ -82,7 +83,6 @@ class AddUser extends React.Component {
   }
 
   render() {
-    const users = this.props.users;
     const userKeys = Object.keys(this.props.users);
     if (userKeys.length >= 8) {
       return (

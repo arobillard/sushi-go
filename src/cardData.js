@@ -1,93 +1,112 @@
 export const cards = {
   'nigiri-egg': {
-    "title": "Egg Nigiri",
+    "title": "Egg",
     "family": "nigiri",
     "type": "nigiri",
     "points": 1,
     "count": 4,
-    "color": "yellow"
+    "color": "yellow",
+    "scoreDesc": "Nigiri 1",
+    "wasabi": false
   },
   'nigiri-salmon': {
-    "title": "Salmon Nigiri",
+    "title": "Salmon",
     "family": "nigiri",
     "type": "nigiri",
     "points": 2,
     "count": 5,
-    "color": "yellow"
+    "color": "yellow",
+    "scoreDesc": "Nigiri 2",
+    "wasabi": false
   },
   'nigiri-squid': {
-    "title": "Squid Nigiri",
+    "title": "Squid",
     "family": "nigiri",
     "type": "nigiri",
     "points": 3,
     "count": 3,
-    "color": "yellow"
+    "color": "yellow",
+    "scoreDesc": "Nigiri 3",
+    "wasabi": true
   },
   'maki-1': {
-    "title": "Maki 1",
+    "title": "Maki",
     "family": "maki",
     "type": "rolls",
     "value": 1,
     "count": 4,
-    "color": "red"
+    "color": "red",
+    "scoreDescL": 'Most: 6/4/2',
+    "scoreDescS": 'Most: 6/3'
   },
   'maki-2': {
-    "title": "Maki 2",
+    "title": "Maki",
     "family": "maki",
     "type": "rolls",
     "value": 2,
     "count": 4,
-    "color": "red"
+    "color": "red",
+    "scoreDescL": 'Most: 6/4/2',
+    "scoreDescS": 'Most: 6/3'
   },
   'maki-3': {
-    "title": "Maki 3",
+    "title": "Maki",
     "family": "maki",
     "type": "rolls",
     "value": 3,
     "count": 3,
-    "color": "red"
+    "color": "red",
+    "scoreDescL": 'Most: 6/4/2',
+    "scoreDescS": 'Most: 6/3'
   },
   'tempura': {
     "title": "Tempura",
     "family": "tempura",
     "type": "appetizer",
     "count": 8,
-    "color": "purple"
+    "color": "purple",
+    "scoreDesc": "x2 = 5"
   },
-  'shashimi': {
-    "title": "Shashimi",
-    "family": "shashimi",
+  'sashimi': {
+    "title": "Sashimi",
+    "family": "sashimi",
     "type": "appetizer",
     "count": 8,
-    "color": "green"
+    "color": "green",
+    "scoreDesc": "x3 = 10"
   },
   'miso-soup': {
     "title": "Miso Soup",
     "family": "miso-soup",
     "type": "appetizer",
     "count": 8,
-    "color": "turquoise"
+    "color": "turquoise",
+    "scoreDesc": "Discard If another is played this turn",
+    "cancelled": true
   },
   'wasabi': {
     "title": "Wasabi",
     "family": "wasabi",
     "type": "special",
     "count": 3,
-    "color": "yellow"
+    "color": "yellow",
+    "scoreDesc": "Next nigiri x3"
   },
   'tea': {
     "title": "Tea",
     "family": "tea",
     "type": "special",
     "count": 3,
-    "color": "burgundy"
+    "color": "burgundy",
+    "scoreDesc": "!pt per most colour"
   },
-  'grean-tea-ice-cream': {
-    "title": "Green Tea Ice Cream",
-    "family": "grean-tea-ice-cream",
+  'ice-cream': {
+    "title": "Ice Cream",
+    "family": "ice-cream",
     "type": "dessert",
     "count": 15,
-    "color": "light-blue"
+    "color": "light-blue",
+    "scoreDesc": "x4 = 12"
   },
 }
 

@@ -4,7 +4,7 @@ import Header from './ui-elements/Header'
 import Footer from './ui-elements/Footer'
 import { cards, deck } from '../cardData'
 import Lobby from './ui-elements/Lobby';
-import GameBoard from '../scss/_ui/GameBoard';
+import GameBoard from './ui-elements/GameBoard';
 
 class App extends React.Component {
 
@@ -89,7 +89,6 @@ class App extends React.Component {
         console.log('dumb gamestart')
       }
     }
-    // this.setState({ deck: deck() });
     const localUser = JSON.parse(localStorage.getItem('localUser'));
     this.setState({ localUser })
   }
@@ -103,7 +102,6 @@ class App extends React.Component {
     const userAmount = Object.keys(this.state.users).length;
     const users = {...this.state.users};
     if (userAmount === 0) {
-      const user = newUser;
       newUser.host = true;
       users[newUser.userName] = newUser;
       this.setState({
@@ -140,10 +138,38 @@ class App extends React.Component {
   }
 
   startGame = () => {
+    const userCount = Object.keys(this.state.users).length;
+    const fullDeck = deck();
     this.setState({
       gameStart: true,
-      round: 1
+      round: 2
      })
+     this.newRound(userCount, fullDeck);
+  }
+
+  newRound = (userCount, fullDeck) => {
+    const newFullDeck = fullDeck;
+    let i = 0;
+    if (this.state.round === 1) {
+      while (i < (userCount < 6 ? 5 : 7)) {
+        newFullDeck.push('ice-cream');
+        i++;
+      }
+    } else if (this.state.round === 2) {
+      console.log('did it')
+      while (i < (userCount < 6 ? 3 : 5)) {
+        newFullDeck.push('ice-cream');
+        i++;
+      }
+    } else if (this.state.round === 3) {
+      while (i < (userCount < 6 ? 2 : 3)) {
+        newFullDeck.push('ice-cream');
+        i++;
+      }
+    } else {
+      console.log(this.state.round)
+    }
+    this.setState({ deck: newFullDeck })
   }
 
   subtitleDisplay = () => {
@@ -159,8 +185,14 @@ class App extends React.Component {
     const users = Object.keys(this.state.users);
     const localUser = this.state.localUser;
     if (this.state.gameStart === true && users.includes(localUser)) {
+      const userCount = Object.keys(this.state.users).length;
       return (
-        <GameBoard />
+        <GameBoard
+          users={this.state.users}
+          localUser={this.state.localUser}
+          deck={this.state.deck}
+          userCount={userCount}
+        />
       )
     } else {
       return (

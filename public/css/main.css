@@ -853,6 +853,109 @@ h6, .headline-6 {
   flex-direction: column-reverse;
   justify-content: space-between;
 }
+.card-panels .card-sushi {
+  position: relative;
+  width: 2.75rem;
+  height: 4rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 5;
+}
+.card-panels .card-sushi:nth-child(2) {
+  z-index: 4;
+}
+.card-panels .card-sushi:nth-child(3) {
+  z-index: 3;
+}
+.card-panels .card-sushi:nth-child(4) {
+  z-index: 2;
+}
+.card-panels .card-sushi:nth-child(5) {
+  z-index: 1;
+}
+.card-panels div.card-sushi.tea,
+.card-panels .sushi-family.tea .card-sushi {
+  background-color: #71141B;
+}
+.card-panels div.card-sushi.tea {
+  margin-left: 0.5rem !important;
+}
+.card-panels .nigiri .card-sushi {
+  background-color: #ebb344;
+}
+.card-panels .nigiri .wasabi {
+  margin-left: 0.5rem !important;
+  border: 3px solid #c12936;
+}
+.card-panels .nigiri .wasabi-applied::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  z-index: 1;
+  border: 3px solid #c12936;
+}
+.card-panels .nigiri .card-title {
+  color: #ebb344;
+}
+.card-panels .maki .card-sushi {
+  background-color: #c12936;
+}
+.card-panels .maki .maki-score {
+  color: #c12936;
+  font-size: 1.5rem;
+}
+.card-panels .maki .card-title {
+  color: #c12936;
+}
+.card-panels .tempura .card-sushi {
+  background-color: #A081C4;
+}
+.card-panels .tempura .card-title {
+  color: #A081C4;
+}
+.card-panels .sashimi .card-sushi {
+  background-color: #6ea31d;
+}
+.card-panels .sashimi .card-title {
+  color: #6ea31d;
+}
+.card-panels .miso-soup .card-sushi {
+  background-color: #075755;
+}
+.card-panels .miso-soup .miso-cancelled {
+  opacity: 0.5;
+}
+.card-panels .miso-soup .miso-cancelled::before {
+  content: "X";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #c12936;
+  font-size: 3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.card-panels .miso-soup .card-title {
+  color: #075755;
+}
+.card-panels .ice-cream {
+  justify-content: center;
+}
+.card-panels .ice-cream .card-sushi {
+  background-color: #2D8CA8;
+}
+.card-panels .ice-cream .card-title {
+  color: #2D8CA8;
+}
 .card-panels .local-user-cards .panel-wrap {
   display: flex;
   justify-content: space-between;
@@ -863,10 +966,48 @@ h6, .headline-6 {
   border-radius: 1.25rem 1.25rem 0 0;
   overflow: hidden;
 }
+.card-panels .local-user-cards .panel-wrap .sushi-family {
+  display: flex;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family:not(:last-child) {
+  margin-right: 1rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi {
+  width: 7rem;
+  height: 10rem;
+  border-radius: 10px;
+  flex-direction: column;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi + .card-sushi {
+  margin-left: -3.5rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-image {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info {
+  background-color: #777;
+  width: 100%;
+  padding: 0.5rem 0.125rem 0;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info .card-title {
+  font-size: 1rem;
+  margin-bottom: -0.125rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info .card-score-desc {
+  font-size: 0.75rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family div.card-sushi.tea,
+.card-panels .local-user-cards .panel-wrap .sushi-family .wasabi {
+  margin-left: 1rem !important;
+}
 .card-panels .local-user-cards .panel-wrap .panel-score {
   width: 5rem;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
@@ -890,6 +1031,8 @@ h6, .headline-6 {
 .card-panels .local-user-cards .panel-wrap .panel-cards {
   position: relative;
   flex-grow: 2;
+  display: flex;
+  overflow-x: scroll;
 }
 .card-panels .local-user-cards .panel-wrap .panel-cards h2 {
   width: 100%;
@@ -900,13 +1043,35 @@ h6, .headline-6 {
   transform: translate(-50%, -40%);
   opacity: 0.5;
 }
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .nigiri .wasabi-applied::before {
+  border-radius: 10px;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .miso-cancelled::before {
+  font-size: 8rem;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .card-score-desc {
+  font-size: 0.5rem;
+}
 .card-panels .local-user-cards .panel-wrap .panel-dessert {
   padding: 1rem;
   width: 10rem;
+  flex-shrink: 0;
 }
 .card-panels .local-user-cards .panel-wrap .panel-dessert h3 {
   font-size: 1.75rem;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.card-panels .local-user-cards .panel-wrap .panel-dessert .card-sushi {
+  transform: scale(0.8) translateY(-1rem);
+}
+.card-panels .local-user-cards .panel-wrap .panel-dessert .card-sushi + .card-sushi {
+  margin-left: -6rem;
 }
 .card-panels .user-cards {
   display: flex;
@@ -942,32 +1107,13 @@ h6, .headline-6 {
   padding: 0.5rem;
   flex-grow: 2;
 }
-.card-panels .user-cards .card-column .panel-dessert {
-  padding: 0.5rem;
-  height: 4rem;
+.card-panels .user-cards .card-column .panel-cards .card-sushi + .card-sushi {
+  margin-left: -1.375rem;
 }
-.card-panels .user-cards .card-column .sushi-family {
-  display: flex;
-}
-.card-panels .user-cards .card-column .sushi-family .card-sushi {
-  position: relative;
-  width: 2.75rem;
-  height: 4rem;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.card-panels .user-cards .card-column .sushi-family .card-sushi-sizer {
-  padding-top: 150%;
-  position: relative;
-}
-.card-panels .user-cards .card-column .sushi-family .card-sushi .card-points {
+.card-panels .user-cards .card-column .panel-cards .card-sushi .card-points {
   font-size: 1.75rem;
 }
-.card-panels .user-cards .card-column .sushi-family .card-sushi::after {
+.card-panels .user-cards .card-column .panel-cards .card-sushi::after {
   content: " ";
   position: absolute;
   bottom: 0;
@@ -976,8 +1122,31 @@ h6, .headline-6 {
   height: 1rem;
   background-color: #777;
 }
-.card-panels .user-cards .card-column .sushi-family.nigiri .card-sushi {
-  background-color: #ebb344;
+.card-panels .user-cards .card-column .panel-dessert {
+  padding: 0.5rem;
+  height: 4rem;
+}
+.card-panels .user-cards .card-column .panel-dessert .card-sushi {
+  width: 2rem;
+  height: 3rem;
+}
+.card-panels .user-cards .card-column .panel-dessert .card-sushi::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: #777;
+  height: 0.75rem;
+}
+.card-panels .user-cards .card-column .panel-dessert .card-sushi + .card-sushi {
+  margin-left: -0.5rem !important;
+}
+.card-panels .user-cards .card-column .sushi-family {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
 }
 
 @-moz-viewport {

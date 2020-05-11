@@ -3,6 +3,119 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   @extend .font-alt;
+  .card-sushi {
+    position: relative;
+    width: 2.75rem;
+    height: 4rem;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: $s-grey-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 5;
+    &:nth-child(2) {
+      z-index: 4;
+    }
+    &:nth-child(3) {
+      z-index: 3;
+    }
+    &:nth-child(4) {
+      z-index: 2;
+    }
+    &:nth-child(5) {
+      z-index: 1;
+    }
+  }
+  div.card-sushi.tea,
+  .sushi-family.tea .card-sushi {
+    background-color: $c-tea;
+  }
+  div.card-sushi.tea {
+    margin-left: .5rem!important;
+  }
+  .nigiri {
+    .card-sushi {
+      background-color: $c-yellow;
+    }
+    .wasabi {
+      margin-left: .5rem!important;
+      border: 3px solid $c-red;
+    }
+    .wasabi-applied::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      z-index: 1;
+      border: 3px solid $c-red;
+    }
+    .card-title {
+      color: $c-yellow;
+    }
+  }
+  .maki {
+    .card-sushi {
+      background-color: $c-red;
+    }
+    .maki-score {
+      color: $c-red;
+      font-size: 1.5rem;
+    }
+    .card-title {
+      color: $c-red;
+    }
+  }
+  .tempura {
+    .card-sushi {
+      background-color: $c-tempura;
+    }
+    .card-title {
+      color: $c-tempura;
+    }
+  }
+  .sashimi {
+    .card-sushi {
+      background-color: $c-green;
+    }
+    .card-title {
+      color: $c-green;
+    }
+  }
+  .miso-soup {
+    .card-sushi {
+      background-color: $c-miso-soup;
+    }
+    .miso-cancelled {
+      opacity: .5;
+      &::before {
+        content: 'X';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $c-red;
+        font-size: 3rem;
+        text-shadow: $s-grey-2;
+      }
+    }
+    .card-title {
+      color: $c-miso-soup;
+    }
+  }
+  .ice-cream {
+    justify-content: center;
+    .card-sushi {
+      background-color: $c-ice-cream;
+    }
+    .card-title {
+      color: $c-ice-cream;
+    }
+  }
   .local-user-cards {
     .panel-wrap {
       display: flex;
@@ -13,10 +126,48 @@
       box-shadow: $s-grey-4;;
       border-radius: 1.25rem 1.25rem 0 0;
       overflow: hidden;
+      .sushi-family {
+        display: flex;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+        .card-sushi {
+          width: 7rem;
+          height: 10rem;
+          border-radius: 10px;
+          flex-direction: column;
+          & + .card-sushi {
+            margin-left: -3.5rem;
+          }
+          .card-image {
+            flex-grow: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .card-info {
+            background-color: $c-grey-cards;
+            width: 100%;
+            padding: .5rem .125rem 0;
+            .card-title {
+              font-size: 1rem;
+              margin-bottom: -.125rem;
+            }
+            .card-score-desc {
+              font-size: .75rem;
+            }
+          }
+        }
+        div.card-sushi.tea,
+        .wasabi {
+          margin-left: 1rem!important;
+        }
+      }
       .panel-score {
         width: 5rem;
         display: flex;
         flex-direction: column;
+        flex-shrink: 0;
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
@@ -40,6 +191,8 @@
       .panel-cards {
         position: relative;
         flex-grow: 2;
+        display: flex;
+        overflow-x: scroll;
         h2 {
           width: 100%;
           font-size: 10rem;
@@ -49,13 +202,41 @@
           transform: translate(-50%, -40%);
           opacity: .5;
         }
+        .sushi-layout {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          .nigiri {
+            .wasabi-applied::before {
+              border-radius: 10px;
+            }
+          }
+          .miso-soup {
+            .miso-cancelled {
+              &::before {
+                font-size: 8rem;
+              }
+            }
+            .card-score-desc {
+              font-size: .5rem;
+            }
+          }
+        }
       }
       .panel-dessert {
         padding: 1rem;
         width: 10rem;
+        flex-shrink: 0;
         h3 {
           font-size: 1.75rem;
           text-shadow: $s-grey-2;
+        }
+        .card-sushi {
+          transform: scale(.8) translateY(-1rem);
+          & + .card-sushi {
+            margin-left: -6rem;
+          }
         }
       }
     }
@@ -91,26 +272,9 @@
       .panel-cards {
         padding: .5rem;
         flex-grow: 2;
-      }
-      .panel-dessert {
-        padding: .5rem;
-        height: 4rem;
-      }
-      .sushi-family {
-        display: flex;
         .card-sushi {
-          position: relative;
-          width: 2.75rem;
-          height: 4rem;
-          border-radius: 5px;
-          overflow: hidden;
-          box-shadow: $s-grey-2;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &-sizer {
-            padding-top: 150%;
-            position: relative;
+          + .card-sushi {
+            margin-left: -1.375rem;
           }
           .card-points {
             font-size: 1.75rem;
@@ -125,11 +289,32 @@
             background-color: $c-grey-cards;
           }
         }
-        &.nigiri {
-          .card-sushi {
-            background-color: $c-yellow;
+      }
+      .panel-dessert {
+        padding: .5rem;
+        height: 4rem;
+        .card-sushi {
+          width: 2rem;
+          height: 3rem;
+          &::after {
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background-color: $c-grey-cards;
+            height: .75rem;
+          }
+          & + .card-sushi {
+            margin-left: -.5rem!important;
           }
         }
+      }
+      .sushi-family {
+        display: flex;
+        align-items: center;
+        overflow-x: scroll;
       }
     }
   }

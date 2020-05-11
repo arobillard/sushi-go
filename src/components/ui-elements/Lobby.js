@@ -1,5 +1,5 @@
 import React from 'react';
-import LobbyPlayerGrid from '../../scss/_ui/LobbyPlayerGrid';
+import LobbyPlayerGrid from './LobbyPlayerGrid';
 import AddUser from './AddUser';
 
 class Lobby extends React.Component {

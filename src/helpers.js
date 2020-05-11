@@ -101,7 +101,6 @@ export function getFunName() {
 // }
 
 export function gameCode() {
-  let gameCode = "";
   const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   const firstLetter = letters[Math.floor(Math.random() * letters.length)];
   const secondLetter = letters[Math.floor(Math.random() * letters.length)];
