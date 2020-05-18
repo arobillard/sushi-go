@@ -72,11 +72,11 @@
 }
 
 .text-green-faded {
-  color: #fafdf5;
+  color: #eff9df;
 }
 
 .text-green-faded-dark {
-  color: #ceee9e;
+  color: #c3ea89;
 }
 
 .text-green-faded-light {
@@ -84,11 +84,11 @@
 }
 
 .bg-green-faded {
-  background-color: #fafdf5;
+  background-color: #eff9df;
 }
 
 .bg-green-faded-dark {
-  background-color: #ceee9e;
+  background-color: #c3ea89;
 }
 
 .bg-green-faded-light {
@@ -120,11 +120,11 @@
 }
 
 .text-turquoise-faded {
-  color: #b3fbfa;
+  color: #e3fefd;
 }
 
 .text-turquoise-faded-dark {
-  color: #52f6f3;
+  color: #82f9f7;
 }
 
 .text-turquoise-faded-light {
@@ -132,11 +132,11 @@
 }
 
 .bg-turquoise-faded {
-  background-color: #b3fbfa;
+  background-color: #e3fefd;
 }
 
 .bg-turquoise-faded-dark {
-  background-color: #52f6f3;
+  background-color: #82f9f7;
 }
 
 .bg-turquoise-faded-light {
@@ -168,11 +168,11 @@
 }
 
 .text-yellow-faded {
-  color: white;
+  color: #fcf5e5;
 }
 
 .text-yellow-faded-dark {
-  color: #f5daa3;
+  color: #f2cf89;
 }
 
 .text-yellow-faded-light {
@@ -180,11 +180,11 @@
 }
 
 .bg-yellow-faded {
-  background-color: white;
+  background-color: #fcf5e5;
 }
 
 .bg-yellow-faded-dark {
-  background-color: #f5daa3;
+  background-color: #f2cf89;
 }
 
 .bg-yellow-faded-light {
@@ -216,11 +216,11 @@
 }
 
 .text-cyan-faded {
-  color: white;
+  color: #e9f7ff;
 }
 
 .text-cyan-faded-dark {
-  color: #9adafe;
+  color: #84d2fd;
 }
 
 .text-cyan-faded-light {
@@ -228,11 +228,11 @@
 }
 
 .bg-cyan-faded {
-  background-color: white;
+  background-color: #e9f7ff;
 }
 
 .bg-cyan-faded-dark {
-  background-color: #9adafe;
+  background-color: #84d2fd;
 }
 
 .bg-cyan-faded-light {
@@ -264,11 +264,11 @@
 }
 
 .text-navy-faded {
-  color: #cbcdf4;
+  color: #ededfb;
 }
 
 .text-navy-faded-dark {
-  color: #767be3;
+  color: #989bea;
 }
 
 .text-navy-faded-light {
@@ -276,11 +276,11 @@
 }
 
 .bg-navy-faded {
-  background-color: #cbcdf4;
+  background-color: #ededfb;
 }
 
 .bg-navy-faded-dark {
-  background-color: #767be3;
+  background-color: #989bea;
 }
 
 .bg-navy-faded-light {
@@ -312,11 +312,11 @@
 }
 
 .text-pink-faded {
-  color: white;
+  color: #faf0f7;
 }
 
 .text-pink-faded-dark {
-  color: #e5b3d8;
+  color: #e0a4d0;
 }
 
 .text-pink-faded-light {
@@ -324,11 +324,11 @@
 }
 
 .bg-pink-faded {
-  background-color: white;
+  background-color: #faf0f7;
 }
 
 .bg-pink-faded-dark {
-  background-color: #e5b3d8;
+  background-color: #e0a4d0;
 }
 
 .bg-pink-faded-light {
@@ -360,11 +360,11 @@
 }
 
 .text-red-faded {
-  color: white;
+  color: #fbeeef;
 }
 
 .text-red-faded-dark {
-  color: #edabb1;
+  color: #e99aa0;
 }
 
 .text-red-faded-light {
@@ -372,11 +372,11 @@
 }
 
 .bg-red-faded {
-  background-color: white;
+  background-color: #fbeeef;
 }
 
 .bg-red-faded-dark {
-  background-color: #edabb1;
+  background-color: #e99aa0;
 }
 
 .bg-red-faded-light {
@@ -566,13 +566,13 @@ html {
   font-family: Raleqay, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .card-panels, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
+h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .pop-up-settings .btn-x-close, .card-panels .user-cards .card-column .panel-cards .maki-count, .card-panels, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .pop-up-settings .grid-flex .btn, .pop-up-settings .grid-flex-h-flip .btn, .pop-up-settings .grid-flex-h-split .btn, .pop-up-settings .grid-flex-v-bottom .btn, .pop-up-settings .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
   font-family: "Luckiest Guy", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   letter-spacing: 1px;
   font-weight: 400;
 }
 
-strong.font-alt, .pop-up-join-game strong.btn, strong.card-panels, .pop-up-add-user .grid-flex strong.btn, .pop-up-add-user .grid-flex-h-flip strong.btn, .pop-up-add-user .grid-flex-h-split strong.btn, .pop-up-add-user .grid-flex-v-bottom strong.btn, .pop-up-add-user .grid-flex-v-middle strong.btn, .player-card-grid strong.player-card.host::after, strong.masthead, b.font-alt, .pop-up-join-game b.btn, b.card-panels, .pop-up-add-user .grid-flex b.btn, .pop-up-add-user .grid-flex-h-flip b.btn, .pop-up-add-user .grid-flex-h-split b.btn, .pop-up-add-user .grid-flex-v-bottom b.btn, .pop-up-add-user .grid-flex-v-middle b.btn, .player-card-grid b.player-card.host::after, b.masthead, em.font-alt, .pop-up-join-game em.btn, em.card-panels, .pop-up-add-user .grid-flex em.btn, .pop-up-add-user .grid-flex-h-flip em.btn, .pop-up-add-user .grid-flex-h-split em.btn, .pop-up-add-user .grid-flex-v-bottom em.btn, .pop-up-add-user .grid-flex-v-middle em.btn, .player-card-grid em.player-card.host::after, em.masthead, i.font-alt, .pop-up-join-game i.btn, i.card-panels, .pop-up-add-user .grid-flex i.btn, .pop-up-add-user .grid-flex-h-flip i.btn, .pop-up-add-user .grid-flex-h-split i.btn, .pop-up-add-user .grid-flex-v-bottom i.btn, .pop-up-add-user .grid-flex-v-middle i.btn, .player-card-grid i.player-card.host::after, i.masthead {
+strong.font-alt, .pop-up-join-game strong.btn, .pop-up-settings strong.btn-x-close, .card-panels .user-cards .card-column .panel-cards strong.maki-count, strong.card-panels, .pop-up-add-user .grid-flex strong.btn, .pop-up-add-user .grid-flex-h-flip strong.btn, .pop-up-add-user .grid-flex-h-split strong.btn, .pop-up-add-user .grid-flex-v-bottom strong.btn, .pop-up-add-user .grid-flex-v-middle strong.btn, .pop-up-settings .grid-flex strong.btn, .pop-up-settings .grid-flex-h-flip strong.btn, .pop-up-settings .grid-flex-h-split strong.btn, .pop-up-settings .grid-flex-v-bottom strong.btn, .pop-up-settings .grid-flex-v-middle strong.btn, .player-card-grid strong.player-card.host::after, strong.masthead, b.font-alt, .pop-up-join-game b.btn, .pop-up-settings b.btn-x-close, .card-panels .user-cards .card-column .panel-cards b.maki-count, b.card-panels, .pop-up-add-user .grid-flex b.btn, .pop-up-add-user .grid-flex-h-flip b.btn, .pop-up-add-user .grid-flex-h-split b.btn, .pop-up-add-user .grid-flex-v-bottom b.btn, .pop-up-add-user .grid-flex-v-middle b.btn, .pop-up-settings .grid-flex b.btn, .pop-up-settings .grid-flex-h-flip b.btn, .pop-up-settings .grid-flex-h-split b.btn, .pop-up-settings .grid-flex-v-bottom b.btn, .pop-up-settings .grid-flex-v-middle b.btn, .player-card-grid b.player-card.host::after, b.masthead, em.font-alt, .pop-up-join-game em.btn, .pop-up-settings em.btn-x-close, .card-panels .user-cards .card-column .panel-cards em.maki-count, em.card-panels, .pop-up-add-user .grid-flex em.btn, .pop-up-add-user .grid-flex-h-flip em.btn, .pop-up-add-user .grid-flex-h-split em.btn, .pop-up-add-user .grid-flex-v-bottom em.btn, .pop-up-add-user .grid-flex-v-middle em.btn, .pop-up-settings .grid-flex em.btn, .pop-up-settings .grid-flex-h-flip em.btn, .pop-up-settings .grid-flex-h-split em.btn, .pop-up-settings .grid-flex-v-bottom em.btn, .pop-up-settings .grid-flex-v-middle em.btn, .player-card-grid em.player-card.host::after, em.masthead, i.font-alt, .pop-up-join-game i.btn, .pop-up-settings i.btn-x-close, .card-panels .user-cards .card-column .panel-cards i.maki-count, i.card-panels, .pop-up-add-user .grid-flex i.btn, .pop-up-add-user .grid-flex-h-flip i.btn, .pop-up-add-user .grid-flex-h-split i.btn, .pop-up-add-user .grid-flex-v-bottom i.btn, .pop-up-add-user .grid-flex-v-middle i.btn, .pop-up-settings .grid-flex i.btn, .pop-up-settings .grid-flex-h-flip i.btn, .pop-up-settings .grid-flex-h-split i.btn, .pop-up-settings .grid-flex-v-bottom i.btn, .pop-up-settings .grid-flex-v-middle i.btn, .player-card-grid i.player-card.host::after, i.masthead {
   font-weight: normal;
   font-style: normal;
 }
@@ -679,11 +679,17 @@ h6, .headline-6 {
   text-shadow: 2px 2px 0 #c0459f;
   margin-bottom: -0.5rem;
 }
-.masthead .wrapper .gamecode-wrap {
+.masthead .wrapper .game-info-wrap {
   font-size: 1.5rem;
   text-shadow: 2px 2px 0 #c0459f;
+  display: flex;
+  align-items: flex-end;
 }
-.masthead .wrapper .gamecode-wrap .gamecode {
+.masthead .wrapper .game-info-wrap button {
+  text-shadow: 2px 2px 0 #c0459f;
+  margin-bottom: 0.15rem;
+}
+.masthead .wrapper .game-info-wrap .gamecode {
   display: inline-block;
   font-size: 2rem;
   background-color: #fff;
@@ -703,7 +709,7 @@ h6, .headline-6 {
 .player-card-grid .player-card {
   border-radius: 20px;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
-  transition: transform 0.2s, opacity 0.2s, background-color 0.2s, color 0.2s;
+  transition: transform 1s, opacity 1s, background-color 0.2s, color 0.2s;
 }
 .player-card-grid .player-card.no-user {
   background-color: #ddd;
@@ -785,45 +791,45 @@ h6, .headline-6 {
   transform: rotate(-1deg);
 }
 
-.pop-up-add-user {
+.pop-up-add-user, .pop-up-settings {
   max-width: 35em;
   margin: 0 auto;
   background-color: #fff;
   border: 3px solid #553274;
 }
-.pop-up-add-user h2 {
+.pop-up-add-user h2, .pop-up-settings h2 {
   color: #553274;
   text-shadow: 2px 2px 0 #c0459f;
 }
-.pop-up-add-user .grid-flex, .pop-up-add-user .grid-flex-h-flip, .pop-up-add-user .grid-flex-h-split, .pop-up-add-user .grid-flex-v-bottom, .pop-up-add-user .grid-flex-v-middle {
+.pop-up-add-user .grid-flex, .pop-up-add-user .grid-flex-h-flip, .pop-up-add-user .grid-flex-h-split, .pop-up-add-user .grid-flex-v-bottom, .pop-up-add-user .grid-flex-v-middle, .pop-up-settings .grid-flex, .pop-up-settings .grid-flex-h-flip, .pop-up-settings .grid-flex-h-split, .pop-up-settings .grid-flex-v-bottom, .pop-up-settings .grid-flex-v-middle {
   border: 3px solid #553274;
   border-radius: 10px;
   overflow: hidden;
 }
-.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn {
+.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .pop-up-settings .grid-flex .btn, .pop-up-settings .grid-flex-h-flip .btn, .pop-up-settings .grid-flex-h-split .btn, .pop-up-settings .grid-flex-v-bottom .btn, .pop-up-settings .grid-flex-v-middle .btn {
   border-radius: 0;
   border: 0;
   width: 33.3333%;
 }
-.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input {
+.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input {
   padding: 0.75rem 1rem 0.125rem;
   font-size: 1.75rem;
   color: #c0459f;
   text-shadow: 1px 1px 0 #553274;
   width: 66.6666%;
 }
-.pop-up-add-user .grid-colors {
+.pop-up-add-user .grid-colors, .pop-up-settings .grid-colors {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.pop-up-add-user .grid-colors .color-swatch {
+.pop-up-add-user .grid-colors .color-swatch, .pop-up-settings .grid-colors .color-swatch {
   padding: 1rem 0 2rem;
 }
-.pop-up-add-user .grid-colors .color-swatch input {
+.pop-up-add-user .grid-colors .color-swatch input, .pop-up-settings .grid-colors .color-swatch input {
   display: none;
 }
-.pop-up-add-user .grid-colors .color-swatch label {
+.pop-up-add-user .grid-colors .color-swatch label, .pop-up-settings .grid-colors .color-swatch label {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -832,67 +838,75 @@ h6, .headline-6 {
   opacity: 0.5;
   transition: transform 0.2s, opacity 0.2s;
 }
-.pop-up-add-user .grid-colors .color-swatch label:hover {
+.pop-up-add-user .grid-colors .color-swatch label:hover, .pop-up-settings .grid-colors .color-swatch label:hover {
   cursor: pointer;
 }
-.pop-up-add-user .grid-colors .color-swatch label span {
+.pop-up-add-user .grid-colors .color-swatch label span, .pop-up-settings .grid-colors .color-swatch label span {
   display: none;
 }
-.pop-up-add-user .grid-colors .color-swatch input:checked + label {
+.pop-up-add-user .grid-colors .color-swatch input:checked + label, .pop-up-settings .grid-colors .color-swatch input:checked + label {
   opacity: 1;
   transform: scale(1.25);
 }
-.pop-up-add-user .grid-colors .color-swatch input:disabled + label {
+.pop-up-add-user .grid-colors .color-swatch input:disabled + label, .pop-up-settings .grid-colors .color-swatch input:disabled + label {
   opacity: 0.25;
   transform: scale(0.75);
   background-color: #aaa;
 }
 
-.card-panels {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-}
-.card-panels .card-sushi {
+.sushi-family {
   position: relative;
-  width: 2.75rem;
-  height: 4rem;
-  border-radius: 5px;
+}
+
+.card-sushi {
+  position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  text-align: center;
   flex-shrink: 0;
   z-index: 5;
+  border-radius: 10px;
+  flex-direction: column;
+  transition: opacity 0.5s, transform 0.5s;
 }
-.card-panels .card-sushi:nth-child(2) {
-  z-index: 4;
+.card-sushi.not-revealed {
+  display: none;
 }
-.card-panels .card-sushi:nth-child(3) {
-  z-index: 3;
+.card-sushi .card-image {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.card-panels .card-sushi:nth-child(4) {
-  z-index: 2;
+.card-sushi .card-image img {
+  width: 100%;
 }
-.card-panels .card-sushi:nth-child(5) {
-  z-index: 1;
+.card-sushi .card-info {
+  background-color: #777;
+  width: 100%;
+  padding: 0.5rem 0.125rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0.125rem 0;
+  height: 5rem;
 }
-.card-panels div.card-sushi.tea,
-.card-panels .sushi-family.tea .card-sushi {
-  background-color: #71141B;
+.card-sushi .card-info .card-title {
+  font-size: 1rem;
+  margin-bottom: -0.125rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
 }
-.card-panels div.card-sushi.tea {
-  margin-left: 0.5rem !important;
+.card-sushi .card-info .card-score-desc {
+  font-size: 0.75rem;
 }
-.card-panels .nigiri .card-sushi {
+.card-sushi.nigiri, .card-sushi.wasabi {
   background-color: #ebb344;
 }
-.card-panels .nigiri .wasabi {
-  margin-left: 0.5rem !important;
-  border: 3px solid #c12936;
-}
-.card-panels .nigiri .wasabi-applied::before {
+.card-sushi.nigiri.wasabi-applied::before, .card-sushi.nigiri.wasabi-applied:not(.not-revealed) ~ .wasabi::before, .card-sushi.wasabi.wasabi-applied::before, .card-sushi.wasabi.wasabi-applied:not(.not-revealed) ~ .wasabi::before {
   content: " ";
   position: absolute;
   top: 0;
@@ -901,60 +915,106 @@ h6, .headline-6 {
   height: 100%;
   border-radius: 5px;
   z-index: 1;
-  border: 3px solid #c12936;
+  border: 3px solid #6ea31d;
 }
-.card-panels .nigiri .card-title {
+.card-sushi.nigiri .card-title, .card-sushi.wasabi .card-title {
   color: #ebb344;
 }
-.card-panels .maki .card-sushi {
+.card-sushi.maki {
   background-color: #c12936;
 }
-.card-panels .maki .maki-score {
-  color: #c12936;
-  font-size: 1.5rem;
+.card-sushi.maki .card-image img {
+  transform: translateY(1.125rem);
 }
-.card-panels .maki .card-title {
+.card-sushi.maki .card-maki-icons {
+  position: absolute;
+  top: 0;
+  left: 0.25rem;
+}
+.card-sushi.maki .card-maki-icons .maki-icon {
+  width: 3rem;
+}
+.card-sushi.maki .card-title {
   color: #c12936;
 }
-.card-panels .tempura .card-sushi {
+.card-sushi.tempura {
   background-color: #A081C4;
 }
-.card-panels .tempura .card-title {
+.card-sushi.tempura .card-title {
   color: #A081C4;
 }
-.card-panels .sashimi .card-sushi {
-  background-color: #6ea31d;
-}
-.card-panels .sashimi .card-title {
-  color: #6ea31d;
-}
-.card-panels .miso-soup .card-sushi {
+.card-sushi.miso-soup {
   background-color: #075755;
 }
-.card-panels .miso-soup .miso-cancelled {
-  opacity: 0.5;
-}
-.card-panels .miso-soup .miso-cancelled::before {
+.card-sushi.miso-soup.miso-cancelled:not(.not-revealed)::before {
   content: "X";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #c12936;
   font-size: 3rem;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  z-index: 5;
 }
-.card-panels .miso-soup .card-title {
+.card-sushi.miso-soup .card-title {
   color: #075755;
 }
-.card-panels .ice-cream {
-  justify-content: center;
+.card-sushi.miso-soup h4.card-score-desc {
+  font-size: 0.5rem;
 }
-.card-panels .ice-cream .card-sushi {
-  background-color: #2D8CA8;
+.card-sushi.sashimi {
+  background-color: #6ea31d;
 }
-.card-panels .ice-cream .card-title {
-  color: #2D8CA8;
+.card-sushi.sashimi .card-title {
+  color: #6ea31d;
+}
+.card-sushi.tea {
+  background-color: #71141B;
+}
+.card-sushi.tea .card-title {
+  color: #71141B;
+}
+.card-sushi.ice-cream {
+  background-color: #039bf0;
+}
+.card-sushi.ice-cream .card-title {
+  color: #039bf0;
+}
+.card-sushi.tea, .card-sushi.wasabi {
+  order: 100;
+}
+.card-sushi.tea:not(:first-child), .card-sushi.wasabi:not(:first-child) {
+  margin-left: auto;
+}
+.card-sushi.wasabi + .tea {
+  margin-left: 0.5rem;
+}
+.card-sushi.not-revealed:first-child + .wasabi, .card-sushi.not-revealed:first-child + .tea {
+  margin-left: 0;
+}
+.card-sushi:nth-child(2) {
+  z-index: 4;
+}
+.card-sushi:nth-child(3) {
+  z-index: 3;
+}
+.card-sushi:nth-child(4) {
+  z-index: 2;
+}
+.card-sushi:nth-child(5) {
+  z-index: 1;
+}
+
+.card-panels {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
 }
 .card-panels .local-user-cards .panel-wrap {
   display: flex;
@@ -966,42 +1026,45 @@ h6, .headline-6 {
   border-radius: 1.25rem 1.25rem 0 0;
   overflow: hidden;
 }
+.card-panels .local-user-cards .panel-wrap .card-sushi.not-revealed {
+  display: flex;
+  opacity: 0.5;
+  transform: translateY(3rem);
+}
 .card-panels .local-user-cards .panel-wrap .sushi-family {
   display: flex;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family:not(:last-child) {
   margin-right: 1rem;
 }
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi {
-  width: 7rem;
-  height: 10rem;
-  border-radius: 10px;
-  flex-direction: column;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi + .card-sushi {
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi + .card-sushi:not(.wasabi):not(.tea) {
   margin-left: -3.5rem;
 }
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-image {
-  flex-grow: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info {
-  background-color: #777;
-  width: 100%;
-  padding: 0.5rem 0.125rem 0;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info .card-title {
-  font-size: 1rem;
-  margin-bottom: -0.125rem;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family .card-sushi .card-info .card-score-desc {
-  font-size: 0.75rem;
-}
-.card-panels .local-user-cards .panel-wrap .sushi-family div.card-sushi.tea,
 .card-panels .local-user-cards .panel-wrap .sushi-family .wasabi {
-  margin-left: 1rem !important;
+  margin-left: 1rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .tea {
+  order: -1;
+  margin-right: -3.5rem;
+  margin-left: 0;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .tea + .tea {
+  order: -2;
+  z-index: 0;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .maki .card-maki-icons {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0.25rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .maki .card-maki-icons .maki-icon {
+  width: 2rem;
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .maki .card-image img {
+  transform: translateY(0.5rem);
+}
+.card-panels .local-user-cards .panel-wrap .sushi-family .card-info {
+  height: 4rem;
+  padding: 0.25rem 0.125rem 0;
 }
 .card-panels .local-user-cards .panel-wrap .panel-score {
   width: 5rem;
@@ -1033,6 +1096,7 @@ h6, .headline-6 {
   flex-grow: 2;
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 .card-panels .local-user-cards .panel-wrap .panel-cards h2 {
   width: 100%;
@@ -1048,30 +1112,77 @@ h6, .headline-6 {
   width: 100%;
   align-items: center;
   justify-content: center;
+  padding-left: 1rem;
 }
-.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .nigiri .wasabi-applied::before {
+@media only screen and (max-width: 1100px) {
+  .card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout {
+    justify-content: flex-start;
+  }
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .card-sushi {
+  width: 7rem;
+  height: 10rem;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .nigiri .wasabi-applied::before,
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .nigiri .wasabi-applied ~ .wasabi::before {
+  content: "Wasabi!";
+  color: #6ea31d;
+  padding-top: 0.25rem;
   border-radius: 10px;
+  border-width: 4px;
 }
-.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .miso-cancelled::before {
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .nigiri .wasabi-applied ~ .wasabi::before {
+  content: " ";
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .miso-cancelled::before, .card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .tea .miso-cancelled::before {
   font-size: 8rem;
 }
-.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .card-score-desc {
+.card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .miso-soup .card-score-desc, .card-panels .local-user-cards .panel-wrap .panel-cards .sushi-layout .tea .card-score-desc {
   font-size: 0.5rem;
 }
+.card-panels .local-user-cards .panel-wrap .panel-cards .maki-count {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  position: absolute;
+  z-index: 10;
+  left: 3.5rem;
+  top: 50%;
+  transform: translate(-50%, -75%);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #c12936;
+}
+.card-panels .local-user-cards .panel-wrap .panel-cards .maki-count span {
+  margin-top: 0.625rem;
+  margin-left: 0.125rem;
+}
 .card-panels .local-user-cards .panel-wrap .panel-dessert {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   width: 10rem;
   flex-shrink: 0;
 }
-.card-panels .local-user-cards .panel-wrap .panel-dessert h3 {
-  font-size: 1.75rem;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+.card-panels .local-user-cards .panel-wrap .panel-dessert .dessert-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
-.card-panels .local-user-cards .panel-wrap .panel-dessert .card-sushi {
+.card-panels .local-user-cards .panel-wrap .panel-dessert .dessert-cards .card-sushi {
+  width: 7rem;
+  height: 10rem;
   transform: scale(0.8) translateY(-1rem);
+  flex-shrink: 0;
 }
-.card-panels .local-user-cards .panel-wrap .panel-dessert .card-sushi + .card-sushi {
+.card-panels .local-user-cards .panel-wrap .panel-dessert .dessert-cards .card-sushi + .card-sushi {
   margin-left: -6rem;
+}
+.card-panels .local-user-cards .panel-wrap .panel-dessert .dessert-cards .card-sushi.not-revealed {
+  transform: scale(0.8) translateY(2rem);
 }
 .card-panels .user-cards {
   display: flex;
@@ -1103,50 +1214,188 @@ h6, .headline-6 {
 .card-panels .user-cards .card-column .panel-score .score {
   font-size: 1.5rem;
 }
-.card-panels .user-cards .card-column .panel-cards {
-  padding: 0.5rem;
-  flex-grow: 2;
+.card-panels .user-cards .card-column .card-sushi {
+  width: 2.75rem;
+  height: 4rem;
+  border-radius: 5px;
+  justify-content: space-between;
 }
-.card-panels .user-cards .card-column .panel-cards .card-sushi + .card-sushi {
+.card-panels .user-cards .card-column .card-sushi + .card-sushi:not(.wasabi):not(.tea), .card-panels .user-cards .card-column .card-sushi.tea + .tea {
   margin-left: -1.375rem;
 }
-.card-panels .user-cards .card-column .panel-cards .card-sushi .card-points {
-  font-size: 1.75rem;
+.card-panels .user-cards .card-column .card-sushi .card-img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
 }
-.card-panels .user-cards .card-column .panel-cards .card-sushi::after {
-  content: " ";
+.card-panels .user-cards .card-column .card-sushi .card-points {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  font-size: 1.75rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-panels .user-cards .card-column .card-sushi.maki .card-points {
+  background-color: rgba(193, 40, 53, 0.5);
+}
+.card-panels .user-cards .card-column .card-sushi.nigiri .card-points {
+  background-color: rgba(235, 179, 68, 0.5);
+}
+.card-panels .user-cards .card-column .card-sushi img {
+  width: 90%;
+}
+.card-panels .user-cards .card-column .card-sushi::after {
+  content: " ";
   width: 100%;
   height: 1rem;
   background-color: #777;
 }
+.card-panels .user-cards .card-column .panel-cards {
+  padding: 0.5rem;
+  flex-grow: 2;
+}
+.card-panels .user-cards .card-column .panel-cards .sushi-family:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.card-panels .user-cards .card-column .panel-cards .maki-count {
+  color: #c12936;
+  font-size: 1.75rem;
+  margin-left: 1rem;
+}
 .card-panels .user-cards .card-column .panel-dessert {
   padding: 0.5rem;
   height: 4rem;
+  display: flex;
 }
 .card-panels .user-cards .card-column .panel-dessert .card-sushi {
   width: 2rem;
   height: 3rem;
 }
 .card-panels .user-cards .card-column .panel-dessert .card-sushi::after {
-  content: " ";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1rem;
-  background-color: #777;
   height: 0.75rem;
 }
 .card-panels .user-cards .card-column .panel-dessert .card-sushi + .card-sushi {
-  margin-left: -0.5rem !important;
+  margin-left: 0.5rem;
 }
 .card-panels .user-cards .card-column .sushi-family {
   display: flex;
   align-items: center;
   overflow-x: scroll;
+}
+
+.hand {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 100%;
+  transform: translate(-4rem, -50%);
+  min-height: 20rem;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 20px 0 0 20px;
+  transition: transform 0.2s;
+  display: flex;
+}
+.hand.open {
+  transform: translate(-100%, -50%);
+}
+.hand.locked {
+  transform: translate(0, -50%);
+}
+.hand .hand-title {
+  border-radius: 20px 0 0 20px;
+  color: #fff;
+  position: relative;
+  width: 4rem;
+  transition: opacity 0.2s;
+}
+.hand .hand-title:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+.hand .hand-title:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.hand .hand-title .hand-title-rotate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 20rem;
+  text-align: center;
+  transform: translate(-48.5%, -50%) rotate(-90deg);
+}
+.hand .hand-title .hand-title-rotate h2 {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  display: inline-block;
+}
+.hand .hand-title span {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: none;
+}
+.hand .hand-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 10rem);
+  grid-template-rows: repeat(2, 14rem);
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+.hand .hand-cards .card-sushi {
+  width: 10rem;
+  height: 14rem;
+}
+.hand .hand-cards .card-sushi .card-info .card-title {
+  font-size: 1.25rem;
+  margin-bottom: -0.125rem;
+}
+.hand .hand-cards .card-sushi .card-info .card-score-desc {
+  font-size: 1rem;
+}
+.hand .hand-cards .card-sushi.miso-soup .card-score-desc, .hand .hand-cards .card-sushi.tea .card-score-desc {
+  font-size: 0.75rem;
+}
+.hand .hand-cards .card-sushi .card-confirm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-up-settings {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pop-up-settings .btn-x-close {
+  font-size: 2rem;
+  color: #553274;
+  text-shadow: 2px 2px 0 #c0459f;
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.pop-up-settings .btn-x-close:hover, .pop-up-settings .btn-x-close:focus {
+  opacity: 1;
 }
 
 @-moz-viewport {
@@ -1767,6 +2016,10 @@ input {
   padding-top: 100%;
 }
 
+.opacity-1-4 {
+  opacity: 0.25;
+}
+
 .opacity-1-2 {
   opacity: 0.5;
 }
@@ -1779,9 +2032,10 @@ main {
   background-repeat: no-repeat;
   position: relative;
   min-height: 100vh;
+  transition: opacity 0.25s;
 }
 
-.pop-up, .pop-up-join-game, .pop-up-add-user {
+.pop-up, .pop-up-join-game, .pop-up-add-user, .pop-up-settings {
   border-radius: 20px;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
 }

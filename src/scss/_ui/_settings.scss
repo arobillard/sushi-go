@@ -1,0 +1,22 @@
+.pop-up-settings {
+  @extend .pop-up-add-user;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .btn-x-close {
+    @extend .font-alt;
+    font-size: 2rem;
+    color: $c-purple;
+    text-shadow: $s-pink-2;
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    opacity: .75;
+    transition: opacity .2s;
+    &:hover, &:focus {
+      opacity: 1;
+    }
+  }
+}

@@ -27,10 +27,22 @@ class Header extends React.Component {
     }
   }
 
+  handleSettings = () => {
+    this.props.handleSettingsDisplay()
+  }
+
   displayGamecode = () => {
     if (this.props.gamecode !== undefined) {
+      if (this.props.host) {
+        return (
+          <div className="game-info-wrap pad-t-1-2 pad-b-1-2">
+            <button onClick={this.handleSettings} className="push-r-2">Settings</button>
+            <p className="push-0">Gamecode: <span className="gamecode push-l">{this.props.gamecode}</span></p>
+          </div>
+        )
+      }
       return (
-        <div className="gamecode-wrap pad-t-1-2 pad-b-1-2">
+        <div className="game-info-wrap pad-t-1-2 pad-b-1-2">
           <p className="push-0">Gamecode: <span className="gamecode push-l">{this.props.gamecode}</span></p>
         </div>
       )

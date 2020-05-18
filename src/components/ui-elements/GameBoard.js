@@ -1,152 +1,475 @@
 import React from 'react';
 import { cards } from '../../cardData';
+import CardSushiFull from './CardSushiFull';
+import CardSushiSm from './CardSushiSm';
 
 class GameBoard extends React.Component {
 
   state ={
-    users: {
-      Adam: {
-        userName: "Adam",
-        color: "purple",
-        cards: ['nigiri-salmon', 'nigiri-salmon', 'nigiri-squid', 'maki-3', 'maki-2', 'tempura', 'tempura', 'sashimi', 'miso-soup', 'ice-cream']
-      },
-      Hannah: {
-        userName: "Hannah",
-        color: "green"
-      },
-      Patti: {
-        userName: "Patti",
-        color: "turquoise"
-      },
-      Hugh: {
-        userName: "Hugh",
-        color: "yellow"
-      },
-      Tim: {
-        userName: "Tim",
-        color: "cyan"
-      },
-      Caitlin: {
-        userName: "Caitlin",
-        color: "navy"
-      },
-      Andrew: {
-        userName: "Andrew",
-        color: "pink"
-      },
-      Kyla: {
-        userName: "Kyla",
-        color: "red"
-      },
+    handVisible: true,
+  }
+
+  teaRef = React.createRef();
+
+  componentDidMount() {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (this.props.settingsDisplayed) {
+          this.props.handleSettingsDisplay();
+        } else {
+          this.handleHandVisibility();
+        }
+      }
+    })
+  }
+
+  userPlayCard = (card) => {
+    this.props.playCard(card)
+  }
+
+  showHand = () => {
+    const localUser = this.props.localUser;
+    const users = {...this.props.users};
+    const hands = this.props.hands;
+    const handRef = users[localUser].handRef;
+    const hand = hands[handRef];
+    const handFamilies = [];
+    const handDisplay = [];
+    const handLocked = users[localUser].playedCards ? users[localUser].playedCards.ready : false;
+    if (hand) {
+      hand.forEach(key => {
+        if (!handFamilies.includes(cards[key].family)) {
+          handFamilies.push(cards[key].family)
+        }
+      })
+    }
+    let cardCounter = 1;
+    handFamilies.forEach(family => {
+      hand.forEach(card => {
+        if (cards[card].family === family) {
+          const cardData = cards[card];
+          handDisplay.push(
+            <CardSushiFull
+              key={`card-${cardCounter}-${card}`}
+              index={card}
+              img={card}
+              cardData={cardData}
+              users={users}
+              userPlayCard={this.userPlayCard}
+              showConfirm={true}
+              revealed={true}
+            />
+          )
+          cardCounter++;
+        }
+      })
+    })
+    return (
+      <aside className={`hand bg-${this.props.users[this.props.localUser].color}-faded${this.state.handVisible ? ' open' : ''}${handLocked ? ' locked' : ''}`}>
+        <button onClick={this.handleHandVisibility} className={`hand-title bg-${this.props.users[this.props.localUser].color}`} tabIndex="0">
+          <div className="hand-title-rotate">
+            <h2>Your Hand</h2>
+          </div>
+          <span className="headline-3">{this.state.handVisible ? 'X' : '<'}</span>
+        </button>
+        <div className="hand-cards island">
+          {handDisplay}
+        </div>
+      </aside>
+    )
+  }
+
+  handleHandVisibility = () => {
+    if (this.state.handVisible) {
+      this.setState({ handVisible: false })
+    } else {
+      this.setState({ handVisible: true })
     }
   }
 
-  displayLocalUserCards = () => {
-    const localUser = this.state.users[this.props.localUser];
-    // get card information
-    const playedCards = {
-      "nigiri": {},
-      "maki": {},
-      "tempura": {},
-      "sashimi": {},
-      "miso-soup": {},
-      "tea": {},
-      "wasabi": {},
-      "ice-cream": {},
+  myPlayedCards = () => {
+    const localUser = this.props.localUser;
+    const users = { ...this.props.users };
+    const hand = users[localUser].playedCards ? users[localUser].playedCards.cards : [];
+    const handFamilies = [];
+    const handDisplay = [];
+    if (hand) {
+      hand.forEach(card => {
+        if (!handFamilies.includes(cards[card.card].family)) {
+          if (cards[card.card].family === 'wasabi') {
+            handFamilies.push('nigiri')
+          } else {
+            handFamilies.push(cards[card.card].family)
+          }
+        }
+      })
+    }
+    let cardCounter = 1;
+    const largestFam = {
+      family: null,
+      length: 0,
     };
-    localUser.cards.forEach(key => {
-      const cardfamily = {...playedCards[cards[key].family]}
-      cardfamily[key] = cards[key];
-      playedCards[cards[key].family] = cardfamily;
+    handFamilies.forEach(family => {
+      let makiCount = 0;
+      if (family !== 'ice-cream' && family !== 'wasabi' && family !== 'tea') {
+        const famCards = [];
+        hand.forEach(card => {
+          const cardData = cards[card.card];
+          if (family === 'maki' && cardData.family === 'maki') {
+            makiCount = makiCount + cardData.value;
+          }
+          if (cardData.family === family) {
+            famCards.push(
+              <CardSushiFull
+                key={`${family}-${cardCounter}-${card.card}`}
+                index={card.card}
+                img={card.card}
+                cardData={cardData}
+                users={users}
+                userPlayCard={this.userPlayCard}
+                showConfirm={false}
+                cancelled={card.cancelled}
+                wasabiApplied={card.wasabiApplied}
+                revealed={card.revealed}
+              />
+            )
+            cardCounter++;
+          }
+        })
+        if (family === 'maki') {
+          famCards.push(
+            <div key={`my-maki-count`} className="maki-count">
+              <span>{makiCount}</span>
+            </div>
+          )
+        }
+        hand.forEach(card => {
+          const cardData = cards[card.card];
+          if (cardData['family'] === 'wasabi' && family === 'nigiri') {
+            famCards.push(
+              <CardSushiFull
+                key={`${family}-${cardCounter}-${card.card}`}
+                index={card.card}
+                img={card.card}
+                cardData={cardData}
+                users={users}
+                userPlayCard={this.userPlayCard}
+                showConfirm={false}
+                cancelled={card.cancelled}
+                revealed={card.revealed}
+              />
+            )
+            cardCounter++;
+          }
+        })
+        if (famCards.length > largestFam.length) {
+          largestFam.length = famCards.length;
+          largestFam.family = family;
+        }
+        handDisplay.push(
+          <div key={family} className={`sushi-family ${family}`}>
+            {famCards}
+          </div>
+        )
+      }
     })
-    // create list of cards in each card family
-    const cardFamilies = {
-      "nigiri": {},
-      "maki": {},
-      "tempura": {},
-      "sashimi": {},
-      "miso-soup": {},
-      "tea": {},
-    };
-    console.log(playedCards)
-    // display each family of card
+    handDisplay.forEach(family => {
+      if (family.key === largestFam.family && family.key !== 'tea') {
+        hand.forEach(card => {
+          const cardData = cards[card.card];
+          if (cardData.family === 'tea') {
+            family.props.children.push(
+              <CardSushiFull
+                ref={this.teaRef}
+                key={`tea-${cardCounter}-${card.card}`}
+                index={card.card}
+                img={card.card}
+                cardData={cardData}
+                users={users}
+                userPlayCard={this.userPlayCard}
+                showConfirm={false}
+                revealed={card.revealed}
+              />
+            )
+            cardCounter++;
+          }
+        })
+      }
+    })
+    if (largestFam.length === 0) {
+      const teaCards = [];
+      if (hand) {
+        hand.forEach(card => {
+          const cardData = cards[card.card];
+          if (cardData.family === 'tea') {
+            teaCards.push(
+              <CardSushiFull
+                key={`tea-${cardCounter}-${card.card}`}
+                index={card.card}
+                img={card.card}
+                cardData={cardData}
+                users={users}
+                userPlayCard={this.userPlayCard}
+                showConfirm={false}
+                revealed={card.revealed}
+              />
+            )
+            cardCounter++;
+          }
+        })
+      }
+      handDisplay.push(
+        <div key="tea" className={`sushi-family tea`}>
+          {teaCards}
+        </div>
+      )
+    }
     return (
       <div className="sushi-layout">
-        {Object.keys(playedCards).map(family => {
-          if (family !== 'ice-cream' && family !== 'wasabi') {
-            return (
-              <div key={family} className={`sushi-family ${family}`}>
-                {Object.keys(playedCards[family]).map(sushi => {
-                  if (family === 'maki') {
-                    return (
-                      <div key={sushi} className="card-sushi">
-                        <div className="card-image">
-                          <img src="https://placehold.it/50x50" alt="" />
-                        </div>
-                        <div className="card-info">
-                          <h3 className="card-title">{playedCards[family][sushi].title}</h3>
-                          <h4 className="card-score-desc">{playedCards[family][sushi].scoreDescL}</h4>
-                        </div>
-                      </div>
-                    )
-                  } else {
-                    return (
-                      <div key={sushi} className={`card-sushi${playedCards[family][sushi].wasabi ? ' wasabi-applied' : ''}${playedCards[family][sushi].cancelled ? ' miso-cancelled' : ''}`}>
-                        <div className="card-image">
-                          <img src="https://placehold.it/50x50" alt="" />
-                        </div>
-                        <div className="card-info">
-                          <h3 className="card-title">{playedCards[family][sushi].title}</h3>
-                          <h4 className="card-score-desc">{playedCards[family][sushi].scoreDesc}</h4>
-                        </div>
-                      </div>
-                    )
-                  }
-                })}
-              </div>
-            )
-          }
-        })}
+        {handDisplay}
       </div>
     )
   }
 
+  displayDessert = () => {
+    const localUser = this.props.localUser;
+    const users = { ...this.props.users };
+    const hand = users[localUser].playedCards ? users[localUser].playedCards.cards : false;
+    const handDisplay = [];
+    let cardCounter = 1;
+    if (hand) {
+      hand.forEach(card => {
+        const cardData = cards[card.card];
+        if (cardData.family === 'ice-cream') {
+          handDisplay.push(
+            <CardSushiFull
+              key={`ice-cream-${cardCounter}`}
+              index={card.card}
+              img={card.card}
+              cardData={cardData}
+              users={users}
+              userPlayCard={this.userPlayCard}
+              showConfirm={false}
+              revealed={card.revealed}
+            />
+          )
+          cardCounter++;
+        }
+      })
+    }
+    return handDisplay;
+  }
+
+  displayPlayerPlayedCards = () => {
+    const localUser = this.props.localUser;
+    const users = { ...this.props.users };
+    const userKeys = Object.keys(users);
+    const userColumns = [];
+    userKeys.forEach(user => {
+      if (user !== localUser) {
+        const hand = users[user].playedCards ? users[user].playedCards.cards : false;
+        const handFamilies = [];
+        const handDisplay = [];
+        if (hand) {
+          hand.forEach(card => {
+            if (!handFamilies.includes(cards[card.card].family)) {
+              if (cards[card.card].family === 'wasabi') {
+                handFamilies.push('nigiri')
+              } else {
+                handFamilies.push(cards[card.card].family)
+              }
+            }
+          })
+        }
+        let cardCounter = 1;
+        const largestFam = {
+          family: null,
+          length: 0,
+        };
+        handFamilies.forEach(family => {
+          let makiCount = 0;
+          if (family !== 'ice-cream' && family !== 'wasabi' && family !== 'tea') {
+            const famCards = [];
+            hand.forEach(card => {
+              const cardData = cards[card.card];
+              if (family === 'maki' && cardData.family === 'maki' && card.revealed == true) {
+                makiCount = makiCount + cardData.value;
+              }
+              if (cardData.family === family) {
+                famCards.push(
+                  <CardSushiSm
+                    key={`${user}-${card.card}-${cardCounter}`}
+                    cardData={cards[card.card]}
+                    img={card.card}
+                    cancelled={card.cancelled}
+                    wasabiApplied={card.wasabiApplied}
+                    revealed={card.revealed}
+                  />
+                )
+                cardCounter++;
+              }
+            })
+            if (family === 'maki') {
+              if (makiCount !== 0) {
+                famCards.push(
+                  <div key={`${user}-maki-count`} className="maki-count">
+                    <span>= {makiCount}</span>
+                  </div>
+                )
+              }
+            }
+            hand.forEach(card => {
+              const cardData = cards[card.card];
+              if (cardData['family'] === 'wasabi' && family === 'nigiri') {
+                famCards.push(
+                  <CardSushiSm
+                    key={`${user}-${card.card}-${cardCounter}`}
+                    cardData={cards[card.card]}
+                    img={card.card}
+                    revealed={card.revealed}
+                  />
+                )
+                cardCounter++;
+              }
+            })
+            if (famCards.length > largestFam.length) {
+              largestFam.length = famCards.length;
+              largestFam.family = family;
+            }
+            handDisplay.push(
+              <div key={family} className={`sushi-family ${family}`}>
+                {famCards}
+              </div>
+            )
+          }
+        })
+        handDisplay.forEach(family => {
+          if (family.key === largestFam.family && family.key !== 'tea') {
+            hand.forEach(card => {
+              const cardData = cards[card.card];
+              if (cardData.family === 'tea') {
+                family.props.children.push(
+                  <CardSushiSm
+                    key={`${user}-${card.card}-${cardCounter}`}
+                    cardData={cards[card.card]}
+                    img={card.card}
+                    revealed={card.revealed}
+                  />
+                )
+                cardCounter++;
+              }
+            })
+          }
+        })
+        if (largestFam.length === 0) {
+          const teaCards = [];
+          if (hand) {
+            hand.forEach(card => {
+              const cardData = cards[card.card];
+              if (cardData.family === 'tea') {
+                teaCards.push(
+                  <CardSushiSm
+                    key={`${user}-${card.card}-${cardCounter}`}
+                    cardData={cards[card.card]}
+                    img={card.card}
+                    revealed={card.revealed}
+                  />
+                )
+                cardCounter++;
+              }
+            })
+          }
+          handDisplay.push(
+            <div key="tea" className={`sushi-family tea`}>
+              {teaCards}
+            </div>
+          )
+        }
+
+        cardCounter = 1;
+        const dessertDisplay = []
+        if (hand) {   
+          hand.forEach(card => {
+            const cardData = cards[card.card];
+            if (cardData.family === 'ice-cream') {
+              dessertDisplay.push(
+                <CardSushiSm
+                  key={`${user}-${card.card}-${cardCounter}`}
+                  cardData={cards[card.card]}
+                  img={card.card}
+                  revealed={card.revealed}
+                />
+              )
+              cardCounter++;
+            }
+          })
+        }   
+        userColumns.push (
+          <div key={user} className={`card-column bg-${users[user].color}-faded`}>
+            <div className={`panel-score bg-${users[user].color}`}>
+              <h2>{user}:</h2>
+              <strong className="score">0</strong>
+            </div>
+            <div className="panel-cards">
+              {handDisplay}
+            </div>
+            <div className={`panel-dessert bg-${users[user].color === 'pink' ? 'purple' : 'pink'}`}>
+              {dessertDisplay}
+            </div>
+          </div>
+        )
+      }
+    });
+    return userColumns;
+  }
+
   render() {
+    const localUser = this.props.localUser;
+    const users = this.props.users;
     return (
       <>
       <div className="card-panels wrapper gutter-1-2">
         <section className="local-user-cards gutter-1-2">
-          <div className="panel-wrap bg-purple-faded">
-            <div className="panel-score bg-purple">
+          <div className={`panel-wrap bg-${users[localUser].color}-faded`}>
+            <div className={`panel-score bg-${users[localUser].color}`}>
               <strong className="score">0</strong>
-              <span className="host-badge bg-pink">H</span>
+              {users[localUser].host ? <span className="host-badge bg-pink">H</span> : null}
             </div>
             <div className="panel-cards">
               <h2>Your Sushi</h2>
               {/* {this.displayLocalUserCards()} */}
+              {this.myPlayedCards()}
             </div>
-            <div className="panel-dessert bg-pink">
+              <div className={`panel-dessert bg-${users[localUser].color === 'pink' ? 'purple' : 'pink'}`}>
               <h3>Dessert</h3>
-              
+              <div className="dessert-cards">
+                {this.displayDessert()}
+              </div>
             </div>
           </div>
         </section>
         <section className="user-cards gutter-1-2 push">
-          <div className="card-column bg-green-faded">
+          {this.displayPlayerPlayedCards()}
+          {/* <div className="card-column bg-green-faded">
             <div className="panel-score bg-green">
               <h2>Hannah:</h2>
               <strong className="score">0</strong>
             </div>
             <div className="panel-cards">
-              
+              <div className="sushi-family tempura push-1-2">
+                <div className="card-sushi tempura">
+                </div>
+                <div className="card-sushi tempura">
+                </div>
+              </div>
             </div>
             <div className="panel-dessert bg-pink">
               
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
-
+      {this.showHand()}
       </>
     )
   }

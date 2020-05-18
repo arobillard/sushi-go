@@ -12,6 +12,7 @@ class Footer extends React.Component {
           </div>
           <div className="xs-1 m-1-2 island-1-2">
             <p className="body-2 push-0">Designed and developed for personal use only by <a href="https://adamrobillard.ca">Adam Robillard</a>.</p>
+            <p className="body-2 push-0">Sushi illustrations by <a href="https://hannahdel.ca">Hannah Delaney</a>.</p>
           </div>
         </div>
       </footer>

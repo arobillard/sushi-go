@@ -8,8 +8,8 @@
     border-radius: 20px;
     box-shadow: $s-grey-4;
     transition:
-      transform .2s,
-      opacity .2s,
+      transform 1s,
+      opacity 1s,
       background-color .2s,
       color .2s;
     &.no-user {

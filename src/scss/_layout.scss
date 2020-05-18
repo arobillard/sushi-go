@@ -637,6 +637,10 @@ input {
 
 // Opacity
 
+.opacity-1-4 {
+  opacity: .25;
+}
+
 .opacity-1-2 {
   opacity: .5;
 }
@@ -651,6 +655,7 @@ main {
   background-repeat: no-repeat;
   position: relative;
   min-height: 100vh;
+  transition: opacity .25s;
 }
 
 // Pop ups

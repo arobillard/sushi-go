@@ -1,29 +1,29 @@
 export const cards = {
-  'nigiri-egg': {
+  'egg': {
     "title": "Egg",
     "family": "nigiri",
     "type": "nigiri",
-    "points": 1,
+    "value": 1,
     "count": 4,
     "color": "yellow",
     "scoreDesc": "Nigiri 1",
     "wasabi": false
   },
-  'nigiri-salmon': {
+  'salmon': {
     "title": "Salmon",
     "family": "nigiri",
     "type": "nigiri",
-    "points": 2,
+    "value": 2,
     "count": 5,
     "color": "yellow",
     "scoreDesc": "Nigiri 2",
     "wasabi": false
   },
-  'nigiri-squid': {
+  'squid': {
     "title": "Squid",
     "family": "nigiri",
     "type": "nigiri",
-    "points": 3,
+    "value": 3,
     "count": 3,
     "color": "yellow",
     "scoreDesc": "Nigiri 3",
@@ -98,7 +98,7 @@ export const cards = {
     "type": "special",
     "count": 3,
     "color": "burgundy",
-    "scoreDesc": "!pt per most colour"
+    "scoreDesc": "x1 per most colour"
   },
   'ice-cream': {
     "title": "Ice Cream",
