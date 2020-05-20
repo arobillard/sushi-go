@@ -2,7 +2,7 @@ import React from 'react';
 import base from '../base';
 import Header from './ui-elements/Header'
 import Footer from './ui-elements/Footer'
-import { deck } from '../cardData'
+import { deck, cards } from '../cardData'
 import Lobby from './ui-elements/Lobby';
 import GameBoard from './ui-elements/GameBoard';
 import Settings from './ui-elements/Settings';
@@ -49,8 +49,11 @@ class App extends React.Component {
     localUser: '',
     gameStart: {},
     round: {},
+    roundEnd: false,
     hands: {},
     settingsDisplayed: false,
+    misoPlayed: false,
+    roundScoreCalculated: false,
   }
 
   componentDidMount() {
@@ -76,9 +79,17 @@ class App extends React.Component {
         context: this,
         state: 'round'
       });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/roundEnd`, {
+        context: this,
+        state: 'roundEnd'
+      });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/hands`, {
         context: this,
         state: 'hands'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/misoPlayed`, {
+        context: this,
+        state: 'misoPlayed'
       });
     } else {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
@@ -93,9 +104,17 @@ class App extends React.Component {
         context: this,
         state: 'round'
       });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/roundEnd`, {
+        context: this,
+        state: 'roundEnd'
+      });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/hands`, {
         context: this,
         state: 'hands'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/misoPlayed`, {
+        context: this,
+        state: 'misoPlayed'
       });
       // console.log(this.state.gameStart)
       // if (this.state.gameStart === {}) {
@@ -152,17 +171,27 @@ class App extends React.Component {
   startGame = () => {
     const userCount = Object.keys(this.state.users).length;
     const fullDeck = deck();
-    this.newRound(userCount, fullDeck);
+    this.newRound(userCount, fullDeck, true);
     this.setState({
       gameStart: true
      });
   }
 
-  newRound = (userCount, fullDeck) => {
+  startNewRound = () => {
+    const userCount = Object.keys(this.state.users).length;
+    const fullDeck = deck();
+    this.newRound(userCount, fullDeck, false);
+    this.setState({ 
+      roundEnd: false,
+      roundScoreCalculated: false,
+    })
+  }
+
+  newRound = (userCount, fullDeck, newGame) => {
     const newFullDeck = [...fullDeck];
     let i = 0;
     let round;
-    if (typeof this.state.round === 'object') {
+    if (newGame) {
       round = 1;
       this.setState({ round })
     } else {
@@ -223,11 +252,27 @@ class App extends React.Component {
       hCounter++;
     }
     while (dCounter < userCount) {
+      console.log('running')
+      // console.log(users[userKeys[dCounter]].playedCards.cards.length)
       users[userKeys[dCounter]].handRef = dCounter;
-      users[userKeys[dCounter]].playedCards = {
-        cards: {},
-        ready: false,
+      if (users[userKeys[dCounter]].playedCards && users[userKeys[dCounter]].playedCards.cards.length > 1) {
+        const keepDesserts = [];
+        users[userKeys[dCounter]].playedCards.cards.forEach((card, index) => {
+          if (card.card === 'ice-cream') {
+            keepDesserts.push({card: 'ice-cream', revealed: true});
+          }
+        })
+        users[userKeys[dCounter]].playedCards = {
+          cards: [...keepDesserts],
+          ready: false,
+        }
+      } else {
+        users[userKeys[dCounter]].playedCards = {
+          cards: [],
+          ready: false,
+        }
       }
+      console.log(users[userKeys[dCounter]].playedCards.cards.length)
       dCounter++;
     }
     this.setState({ deck, hands, users });
@@ -247,37 +292,59 @@ class App extends React.Component {
     if ((card === 'egg' || card === 'squid' || card === 'salmon') && users[localUser].playedCards.wasabiWaiting) {
       users[localUser].playedCards.cards.push({
         card: card,
+        scored: false,
         revealed: false,
         wasabiApplied: true
       })
       users[localUser].playedCards.wasabiWaiting = false;
     } else if (card === 'miso-soup') {
-      const cardNum = users[localUser].playedCards.cards.length;
-      let misoPlayed = false;
-      userKeys.forEach(user => {
-        if (user !== localUser) {
-          if (users[user].playedCards.cards && users[user].playedCards.cards[cardNum] && users[user].playedCards.cards[cardNum].card === 'miso-soup') {
-             misoPlayed = true;
-            users[user].playedCards.cards[cardNum].cancelled = true;
+      // const cardNum = users[localUser].playedCards.cards.length;
+      // let misoPlayed = false;
+      // userKeys.forEach(user => {
+      //   if (user !== localUser) {
+      //     if (users[user].playedCards.cards && users[user].playedCards.cards[cardNum] && users[user].playedCards.cards[cardNum].card === 'miso-soup') {
+      //        misoPlayed = true;
+      //       users[user].playedCards.cards[cardNum].cancelled = true;
+      //     }
+      //   }
+      // })
+      if (this.state.misoPlayed === true) {
+        userKeys.forEach(user => {
+          let length =  0;
+          let cardsCopy = [];
+          if (users[user].playedCards.cards) {
+            cardsCopy = [...users[user].playedCards.cards];
+            length = users[user].playedCards.cards.length;
           }
-        }
-      })
-      if (misoPlayed) {
+          const lastCard = cardsCopy.pop();
+          console.log(cardsCopy)
+          console.log(lastCard)
+          if (lastCard && lastCard.card === 'miso-soup') {
+            users[user].playedCards.cards[length - 1].cancelled = true;
+          }
+          // if (users[user].playedCards.cards && lastCard === 'miso-soup') {
+          //   console.log(`${user} played miso too!`)
+          // }
+        })
         users[localUser].playedCards.cards.push({
           card: card,
+          scored: false,
           revealed: false,
           cancelled: true,
         })
       } else {
         users[localUser].playedCards.cards.push({
           card: card,
+          scored: false,
           revealed: false,
           cancelled: false,
         })
+        this.setState({ misoPlayed: true })
       }
     } else {
       users[localUser].playedCards.cards.push({
         card: card,
+        scored: false,
         revealed: false,
       })
     }
@@ -308,26 +375,127 @@ class App extends React.Component {
     }
     if (ready) {
       this.revealCards()
+      this.setState({ misoPlayed: false })
     }
   }
 
   revealCards = () => {
     const users = { ...this.state.users };
     const userKeys = Object.keys(users);
+    const hands = {...this.state.hands}
     userKeys.forEach(key => {
       const cards = users[key].playedCards.cards;
       cards.forEach(card => {
         card.revealed = true;
       })
-      users[key].playedCards.ready = false;
       const handRef = users[key].handRef;
       if (handRef === userKeys.length - 1) {
         users[key].handRef = 0;
       } else {
         users[key].handRef++;
       }
+      if (Object.keys(hands).length < userKeys.length) {
+        setTimeout(() => {
+          if (this.state.roundScoreCalculated === false) {
+            this.calculateScore();
+          }
+          this.setState({ roundEnd: true })
+          this.setState({ roundScoreCalculated: true })
+          console.count('revealCards')
+        }, 2000)
+      } else {
+        users[key].playedCards.ready = false;
+      }
     })
     // rotate hands
+    this.setState({ users })
+  }
+
+  calculateScore = () => {
+    const users = { ...this.state.users }
+    const userKeys = Object.keys(users);
+    const userCount = userKeys.length;
+    const makiCompare = {};
+    userKeys.forEach(user => {
+      const userCards = users[user].playedCards.cards;
+      let score = 0;
+      let tempura = 0;
+      let sashimi = 0;
+      let makiScore = 0;
+      if (users[user].score) {
+        score = users[user].score;
+      }
+      userCards.forEach(card => {
+        if (!card.scored) {
+          if (cards[card.card].family === 'nigiri') {
+            if (card.wasabiApplied) {
+              score = score + (cards[card.card].value * 3);
+            } else {
+              score = score + cards[card.card].value;
+            }
+            card.scored = true;
+          } else if (cards[card.card].family === 'miso-soup' && !card.cancelled) {
+            score = score + 3;
+            card.scored = true;
+          } else if (card.card === 'tempura') {
+            tempura++;
+            card.scored = true;
+          } else if (card.card === 'sashimi') {
+            sashimi++;
+            card.scored = true;
+          } else if (cards[card.card].family === 'maki') {
+            makiScore = makiScore + cards[card.card].value;
+            card.scored = true;
+          }
+        }
+      })
+      if (tempura >= 2) {
+        const tempuraScore = Math.floor(tempura / 2) * 5;
+        score = score + tempuraScore;
+      }
+      if (sashimi >= 3) {
+        const sashimiScore = Math.floor(sashimi / 3) * 10;
+        score = score + sashimiScore;
+      }
+      if (makiScore > 0) {
+        makiCompare[user] = makiScore;
+      }
+      users[user].score = score;
+      users[user].playedCards.cards = userCards;
+    })
+    if (Object.keys(makiCompare).length !== 0) {
+      // const numbersSorted = numbers.sort((aItem, bItem) => aItem - bItem);
+      const makiWinnerOrder = Object.entries(makiCompare).sort(function (a, b) {
+        const aPrice = a[1];
+        const bPrice = b[1];
+        return bPrice - aPrice;
+      });
+      if (userCount > 6) {
+        let thirdPlace;
+        makiWinnerOrder.forEach((winner, index) => {
+          if (index === 0) {
+            console.log(users[winner[0]].score)
+            users[winner[0]].score = users[winner[0]].score + 6;
+            console.log(winner[0], ' came first!', users[winner[0]].score);
+          } else if (index === 1) {
+            console.log(users[winner[0]].score)
+            users[winner[0]].score = users[winner[0]].score + 4;
+            console.log(winner[0], ' came second!', users[winner[0]].score);
+          } else if (index === 2) {
+            console.log(users[winner[0]].score)
+            users[winner[0]].score = users[winner[0]].score + 2;
+            console.log(winner[0], ' came third!', users[winner[0]].score);
+            thirdPlace = winner[1];
+          } else if (winner[1] === thirdPlace) {
+            console.log(users[winner[0]].score)
+            users[winner[0]].score = users[winner[0]].score + 2;
+            console.log(winner[0], ' tied third!', users[winner[0]].score);
+          }
+        }) 
+      } else {
+
+      }
+    }
     this.setState({ users })
   }
 
@@ -352,6 +520,7 @@ class App extends React.Component {
       <Settings
         handleSettingsDisplay={this.handleSettingsDisplay}
         exitToLobby={this.exitToLobby}
+        startGame={this.startGame}
       />
     )
   }
@@ -363,13 +532,16 @@ class App extends React.Component {
     userKeys.forEach(user => {
       users[user].playedCards = null;
       users[user].handRef = null;
+      users[user].score = null;
     })
     this.setState({
       gameStart: false,
       round: null,
       hands: null,
       deck: null,
-      users: users
+      misoPlayed: false,
+      users: users,
+      roundScoreCalculated: false,
     })
     this.handleSettingsDisplay();
   }
@@ -390,6 +562,10 @@ class App extends React.Component {
           playCard={this.playCard}
           settingsDisplayed={this.state.settingsDisplayed}
           handleSettingsDisplay={this.handleSettingsDisplay}
+          roundEnd={this.state.roundEnd}
+          newRound={this.newRound}
+          startNewRound={this.startNewRound}
+          calculateScore={this.calculateScore}
         />
       )
     } else {
@@ -418,6 +594,7 @@ class App extends React.Component {
           gamecode={gamecode}
           host={host}
           handleSettingsDisplay={this.handleSettingsDisplay}
+          gameStart={this.state.gameStart}
         />
         <main id="main" role="main" className={`flex pad-t-6${this.state.settingsDisplayed ? ' opacity-1-4' : ''}`}>
           {this.gameBoardDisplay()}

@@ -2,6 +2,7 @@ import React from 'react';
 import { cards } from '../../cardData';
 import CardSushiFull from './CardSushiFull';
 import CardSushiSm from './CardSushiSm';
+import RoundEnd from './RoundEnd';
 
 class GameBoard extends React.Component {
 
@@ -96,7 +97,7 @@ class GameBoard extends React.Component {
     if (hand) {
       hand.forEach(card => {
         if (!handFamilies.includes(cards[card.card].family)) {
-          if (cards[card.card].family === 'wasabi') {
+          if (cards[card.card].family === 'wasabi' && !handFamilies.includes('nigiri')) {
             handFamilies.push('nigiri')
           } else {
             handFamilies.push(cards[card.card].family)
@@ -273,7 +274,7 @@ class GameBoard extends React.Component {
         if (hand) {
           hand.forEach(card => {
             if (!handFamilies.includes(cards[card.card].family)) {
-              if (cards[card.card].family === 'wasabi') {
+              if (cards[card.card].family === 'wasabi' && !handFamilies.includes('nigiri')) {
                 handFamilies.push('nigiri')
               } else {
                 handFamilies.push(cards[card.card].family)
@@ -313,7 +314,7 @@ class GameBoard extends React.Component {
               if (makiCount !== 0) {
                 famCards.push(
                   <div key={`${user}-maki-count`} className="maki-count">
-                    <span>= {makiCount}</span>
+                    <span>{makiCount}</span>
                   </div>
                 )
               }
@@ -428,7 +429,7 @@ class GameBoard extends React.Component {
     const users = this.props.users;
     return (
       <>
-      <div className="card-panels wrapper gutter-1-2">
+        <div className={`card-panels wrapper gutter-1-2${ this.props.roundEnd === true ? ' opacity-1-4' : ''}`}>
         <section className="local-user-cards gutter-1-2">
           <div className={`panel-wrap bg-${users[localUser].color}-faded`}>
             <div className={`panel-score bg-${users[localUser].color}`}>
@@ -450,26 +451,16 @@ class GameBoard extends React.Component {
         </section>
         <section className="user-cards gutter-1-2 push">
           {this.displayPlayerPlayedCards()}
-          {/* <div className="card-column bg-green-faded">
-            <div className="panel-score bg-green">
-              <h2>Hannah:</h2>
-              <strong className="score">0</strong>
-            </div>
-            <div className="panel-cards">
-              <div className="sushi-family tempura push-1-2">
-                <div className="card-sushi tempura">
-                </div>
-                <div className="card-sushi tempura">
-                </div>
-              </div>
-            </div>
-            <div className="panel-dessert bg-pink">
-              
-            </div>
-          </div> */}
         </section>
       </div>
       {this.showHand()}
+      {this.props.roundEnd === true ? <RoundEnd
+        users={this.props.users}
+        localUser={this.props.localUser}
+        newRound={this.props.newRound}
+        startNewRound={this.props.startNewRound}
+        calculateScore={this.props.calculateScore}
+      /> : null}
       </>
     )
   }

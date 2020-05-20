@@ -566,13 +566,13 @@ html {
   font-family: Raleqay, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .pop-up-settings .btn-x-close, .card-panels .user-cards .card-column .panel-cards .maki-count, .card-panels, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .pop-up-settings .grid-flex .btn, .pop-up-settings .grid-flex-h-flip .btn, .pop-up-settings .grid-flex-h-split .btn, .pop-up-settings .grid-flex-v-bottom .btn, .pop-up-settings .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
+h1, .masthead .wrapper .logo, h2, h3, h4, h5, h6, [class*=headline-], .font-alt, .pop-up-join-game input, .pop-up-join-game .btn, .pop-up-round-end .points-grid-item strong, .pop-up-settings .btn-x-close, .card-panels .user-cards .card-column .panel-cards .maki-count, .card-panels, .pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .player-card-grid .player-card.host::after, .masthead {
   font-family: "Luckiest Guy", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   letter-spacing: 1px;
   font-weight: 400;
 }
 
-strong.font-alt, .pop-up-join-game strong.btn, .pop-up-settings strong.btn-x-close, .card-panels .user-cards .card-column .panel-cards strong.maki-count, strong.card-panels, .pop-up-add-user .grid-flex strong.btn, .pop-up-add-user .grid-flex-h-flip strong.btn, .pop-up-add-user .grid-flex-h-split strong.btn, .pop-up-add-user .grid-flex-v-bottom strong.btn, .pop-up-add-user .grid-flex-v-middle strong.btn, .pop-up-settings .grid-flex strong.btn, .pop-up-settings .grid-flex-h-flip strong.btn, .pop-up-settings .grid-flex-h-split strong.btn, .pop-up-settings .grid-flex-v-bottom strong.btn, .pop-up-settings .grid-flex-v-middle strong.btn, .player-card-grid strong.player-card.host::after, strong.masthead, b.font-alt, .pop-up-join-game b.btn, .pop-up-settings b.btn-x-close, .card-panels .user-cards .card-column .panel-cards b.maki-count, b.card-panels, .pop-up-add-user .grid-flex b.btn, .pop-up-add-user .grid-flex-h-flip b.btn, .pop-up-add-user .grid-flex-h-split b.btn, .pop-up-add-user .grid-flex-v-bottom b.btn, .pop-up-add-user .grid-flex-v-middle b.btn, .pop-up-settings .grid-flex b.btn, .pop-up-settings .grid-flex-h-flip b.btn, .pop-up-settings .grid-flex-h-split b.btn, .pop-up-settings .grid-flex-v-bottom b.btn, .pop-up-settings .grid-flex-v-middle b.btn, .player-card-grid b.player-card.host::after, b.masthead, em.font-alt, .pop-up-join-game em.btn, .pop-up-settings em.btn-x-close, .card-panels .user-cards .card-column .panel-cards em.maki-count, em.card-panels, .pop-up-add-user .grid-flex em.btn, .pop-up-add-user .grid-flex-h-flip em.btn, .pop-up-add-user .grid-flex-h-split em.btn, .pop-up-add-user .grid-flex-v-bottom em.btn, .pop-up-add-user .grid-flex-v-middle em.btn, .pop-up-settings .grid-flex em.btn, .pop-up-settings .grid-flex-h-flip em.btn, .pop-up-settings .grid-flex-h-split em.btn, .pop-up-settings .grid-flex-v-bottom em.btn, .pop-up-settings .grid-flex-v-middle em.btn, .player-card-grid em.player-card.host::after, em.masthead, i.font-alt, .pop-up-join-game i.btn, .pop-up-settings i.btn-x-close, .card-panels .user-cards .card-column .panel-cards i.maki-count, i.card-panels, .pop-up-add-user .grid-flex i.btn, .pop-up-add-user .grid-flex-h-flip i.btn, .pop-up-add-user .grid-flex-h-split i.btn, .pop-up-add-user .grid-flex-v-bottom i.btn, .pop-up-add-user .grid-flex-v-middle i.btn, .pop-up-settings .grid-flex i.btn, .pop-up-settings .grid-flex-h-flip i.btn, .pop-up-settings .grid-flex-h-split i.btn, .pop-up-settings .grid-flex-v-bottom i.btn, .pop-up-settings .grid-flex-v-middle i.btn, .player-card-grid i.player-card.host::after, i.masthead {
+strong.font-alt, .pop-up-join-game strong.btn, .pop-up-round-end .points-grid-item strong, .pop-up-settings strong.btn-x-close, .card-panels .user-cards .card-column .panel-cards strong.maki-count, strong.card-panels, .pop-up-add-user .grid-flex strong.btn, .pop-up-add-user .grid-flex-h-flip strong.btn, .pop-up-add-user .grid-flex-h-split strong.btn, .pop-up-add-user .grid-flex-v-bottom strong.btn, .pop-up-add-user .grid-flex-v-middle strong.btn, .player-card-grid strong.player-card.host::after, strong.masthead, b.font-alt, .pop-up-join-game b.btn, .pop-up-settings b.btn-x-close, .card-panels .user-cards .card-column .panel-cards b.maki-count, b.card-panels, .pop-up-add-user .grid-flex b.btn, .pop-up-add-user .grid-flex-h-flip b.btn, .pop-up-add-user .grid-flex-h-split b.btn, .pop-up-add-user .grid-flex-v-bottom b.btn, .pop-up-add-user .grid-flex-v-middle b.btn, .player-card-grid b.player-card.host::after, b.masthead, em.font-alt, .pop-up-join-game em.btn, .pop-up-settings em.btn-x-close, .card-panels .user-cards .card-column .panel-cards em.maki-count, em.card-panels, .pop-up-add-user .grid-flex em.btn, .pop-up-add-user .grid-flex-h-flip em.btn, .pop-up-add-user .grid-flex-h-split em.btn, .pop-up-add-user .grid-flex-v-bottom em.btn, .pop-up-add-user .grid-flex-v-middle em.btn, .player-card-grid em.player-card.host::after, em.masthead, i.font-alt, .pop-up-join-game i.btn, .pop-up-settings i.btn-x-close, .card-panels .user-cards .card-column .panel-cards i.maki-count, i.card-panels, .pop-up-add-user .grid-flex i.btn, .pop-up-add-user .grid-flex-h-flip i.btn, .pop-up-add-user .grid-flex-h-split i.btn, .pop-up-add-user .grid-flex-v-bottom i.btn, .pop-up-add-user .grid-flex-v-middle i.btn, .player-card-grid i.player-card.host::after, i.masthead {
   font-weight: normal;
   font-style: normal;
 }
@@ -791,45 +791,45 @@ h6, .headline-6 {
   transform: rotate(-1deg);
 }
 
-.pop-up-add-user, .pop-up-settings {
+.pop-up-add-user {
   max-width: 35em;
   margin: 0 auto;
   background-color: #fff;
   border: 3px solid #553274;
 }
-.pop-up-add-user h2, .pop-up-settings h2 {
+.pop-up-add-user h2 {
   color: #553274;
   text-shadow: 2px 2px 0 #c0459f;
 }
-.pop-up-add-user .grid-flex, .pop-up-add-user .grid-flex-h-flip, .pop-up-add-user .grid-flex-h-split, .pop-up-add-user .grid-flex-v-bottom, .pop-up-add-user .grid-flex-v-middle, .pop-up-settings .grid-flex, .pop-up-settings .grid-flex-h-flip, .pop-up-settings .grid-flex-h-split, .pop-up-settings .grid-flex-v-bottom, .pop-up-settings .grid-flex-v-middle {
+.pop-up-add-user .grid-flex, .pop-up-add-user .grid-flex-h-flip, .pop-up-add-user .grid-flex-h-split, .pop-up-add-user .grid-flex-v-bottom, .pop-up-add-user .grid-flex-v-middle {
   border: 3px solid #553274;
   border-radius: 10px;
   overflow: hidden;
 }
-.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn, .pop-up-settings .grid-flex .btn, .pop-up-settings .grid-flex-h-flip .btn, .pop-up-settings .grid-flex-h-split .btn, .pop-up-settings .grid-flex-v-bottom .btn, .pop-up-settings .grid-flex-v-middle .btn {
+.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-add-user .grid-flex .btn, .pop-up-add-user .grid-flex-h-flip .btn, .pop-up-add-user .grid-flex-h-split .btn, .pop-up-add-user .grid-flex-v-bottom .btn, .pop-up-add-user .grid-flex-v-middle .btn {
   border-radius: 0;
   border: 0;
   width: 33.3333%;
 }
-.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input, .pop-up-settings .grid-flex input, .pop-up-settings .grid-flex-h-flip input, .pop-up-settings .grid-flex-h-split input, .pop-up-settings .grid-flex-v-bottom input, .pop-up-settings .grid-flex-v-middle input {
+.pop-up-add-user .grid-flex input, .pop-up-add-user .grid-flex-h-flip input, .pop-up-add-user .grid-flex-h-split input, .pop-up-add-user .grid-flex-v-bottom input, .pop-up-add-user .grid-flex-v-middle input {
   padding: 0.75rem 1rem 0.125rem;
   font-size: 1.75rem;
   color: #c0459f;
   text-shadow: 1px 1px 0 #553274;
   width: 66.6666%;
 }
-.pop-up-add-user .grid-colors, .pop-up-settings .grid-colors {
+.pop-up-add-user .grid-colors {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.pop-up-add-user .grid-colors .color-swatch, .pop-up-settings .grid-colors .color-swatch {
+.pop-up-add-user .grid-colors .color-swatch {
   padding: 1rem 0 2rem;
 }
-.pop-up-add-user .grid-colors .color-swatch input, .pop-up-settings .grid-colors .color-swatch input {
+.pop-up-add-user .grid-colors .color-swatch input {
   display: none;
 }
-.pop-up-add-user .grid-colors .color-swatch label, .pop-up-settings .grid-colors .color-swatch label {
+.pop-up-add-user .grid-colors .color-swatch label {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -838,17 +838,17 @@ h6, .headline-6 {
   opacity: 0.5;
   transition: transform 0.2s, opacity 0.2s;
 }
-.pop-up-add-user .grid-colors .color-swatch label:hover, .pop-up-settings .grid-colors .color-swatch label:hover {
+.pop-up-add-user .grid-colors .color-swatch label:hover {
   cursor: pointer;
 }
-.pop-up-add-user .grid-colors .color-swatch label span, .pop-up-settings .grid-colors .color-swatch label span {
+.pop-up-add-user .grid-colors .color-swatch label span {
   display: none;
 }
-.pop-up-add-user .grid-colors .color-swatch input:checked + label, .pop-up-settings .grid-colors .color-swatch input:checked + label {
+.pop-up-add-user .grid-colors .color-swatch input:checked + label {
   opacity: 1;
   transform: scale(1.25);
 }
-.pop-up-add-user .grid-colors .color-swatch input:disabled + label, .pop-up-settings .grid-colors .color-swatch input:disabled + label {
+.pop-up-add-user .grid-colors .color-swatch input:disabled + label {
   opacity: 0.25;
   transform: scale(0.75);
   background-color: #aaa;
@@ -1015,6 +1015,7 @@ h6, .headline-6 {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  transition: opacity 0.2s;
 }
 .card-panels .local-user-cards .panel-wrap {
   display: flex;
@@ -1267,7 +1268,7 @@ h6, .headline-6 {
 .card-panels .user-cards .card-column .panel-cards .maki-count {
   color: #c12936;
   font-size: 1.75rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .card-panels .user-cards .card-column .panel-dessert {
   padding: 0.5rem;
@@ -1378,11 +1379,19 @@ h6, .headline-6 {
 }
 
 .pop-up-settings {
+  max-width: 35em;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 3px solid #553274;
   width: 100%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.pop-up-settings h2 {
+  color: #553274;
+  text-shadow: 2px 2px 0 #c0459f;
 }
 .pop-up-settings .btn-x-close {
   font-size: 2rem;
@@ -1396,6 +1405,42 @@ h6, .headline-6 {
 }
 .pop-up-settings .btn-x-close:hover, .pop-up-settings .btn-x-close:focus {
   opacity: 1;
+}
+
+.pop-up-round-end {
+  max-width: 50em;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 3px solid #553274;
+  width: calc(100% - 2rem);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pop-up-round-end h2 {
+  color: #553274;
+  text-shadow: 2px 2px 0 #c0459f;
+}
+.pop-up-round-end .points-grid-item {
+  border-radius: 20px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
+}
+.pop-up-round-end .points-grid-item > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.pop-up-round-end .points-grid-item h3 {
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.pop-up-round-end .points-grid-item strong {
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.16);
 }
 
 @-moz-viewport {
@@ -1919,6 +1964,9 @@ input {
   .grid-flex .m-1-2, .grid-flex-h-flip .m-1-2, .grid-flex-h-split .m-1-2, .grid-flex-v-bottom .m-1-2, .grid-flex-v-middle .m-1-2 {
     width: 50%;
   }
+  .grid-flex .m-1-4, .grid-flex-h-flip .m-1-4, .grid-flex-h-split .m-1-4, .grid-flex-v-bottom .m-1-4, .grid-flex-v-middle .m-1-4 {
+    width: 25%;
+  }
   .grid-flex .m-1-3, .grid-flex-h-flip .m-1-3, .grid-flex-h-split .m-1-3, .grid-flex-v-bottom .m-1-3, .grid-flex-v-middle .m-1-3 {
     width: 33.3333%;
   }
@@ -2035,7 +2083,7 @@ main {
   transition: opacity 0.25s;
 }
 
-.pop-up, .pop-up-join-game, .pop-up-add-user, .pop-up-settings {
+.pop-up, .pop-up-join-game, .pop-up-add-user, .pop-up-settings, .pop-up-round-end {
   border-radius: 20px;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
 }

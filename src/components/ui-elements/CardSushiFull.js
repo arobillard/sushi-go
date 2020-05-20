@@ -4,7 +4,6 @@ class CardSushiFull extends React.Component {
 
   state = {
     confirm: false,
-    confirming: false,
   }
 
   handlePlayCard = (e) => {
@@ -14,13 +13,7 @@ class CardSushiFull extends React.Component {
   }
 
   askConfirm = () => {
-    if (this.state.confirming) {
-      return (
-        <div className="card-confirm">
-          <strong className="headline-4 text-purple">Sushi <span className="text-pink">Go!</span></strong>
-        </div>
-      )
-    } else if (this.state.confirm) {
+    if (this.state.confirm) {
       return (
         <div className="card-confirm">
           <button className="btn push" onClick={this.confirmCard}>Confirm</button>
@@ -33,7 +26,6 @@ class CardSushiFull extends React.Component {
   confirmCard = (e) => {
     const card = e.currentTarget.closest('.card-sushi').dataset.card; 
     this.props.userPlayCard(card);
-    this.setState({ confirming: true })
   }
   
   cancelCard = (e) => {

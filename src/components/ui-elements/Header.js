@@ -33,7 +33,7 @@ class Header extends React.Component {
 
   displayGamecode = () => {
     if (this.props.gamecode !== undefined) {
-      if (this.props.host) {
+      if (this.props.host && this.props.gameStart) {
         return (
           <div className="game-info-wrap pad-t-1-2 pad-b-1-2">
             <button onClick={this.handleSettings} className="push-r-2">Settings</button>

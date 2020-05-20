@@ -166,6 +166,7 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  transition: opacity .2s;
   @extend .font-alt;
   .local-user-cards {
     .panel-wrap {
@@ -435,7 +436,7 @@
           color: $c-red;
           @extend .font-alt;
           font-size: 1.75rem;
-          margin-left: 1rem;
+          margin-left: .5rem;
         }
       }
       .panel-dessert {
