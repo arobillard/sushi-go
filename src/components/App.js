@@ -67,6 +67,10 @@ class App extends React.Component {
         round: savedState.round,
         hands: savedState.hands,
       })
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/deck`, {
+        context: this,
+        state: 'deck'
+      });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
         context: this,
         state: 'users'
@@ -92,6 +96,10 @@ class App extends React.Component {
         state: 'misoPlayed'
       });
     } else {
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/deck`, {
+        context: this,
+        state: 'deck'
+      });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
         context: this,
         state: 'users'
@@ -179,7 +187,20 @@ class App extends React.Component {
 
   startNewRound = () => {
     const userCount = Object.keys(this.state.users).length;
-    const fullDeck = deck();
+    const iceCreamLayOver = [];
+    const deckReset = deck();
+    this.state.deck.forEach(card => {
+      if (card === "ice-cream") {
+        iceCreamLayOver.push(card);
+      }
+    })
+    const fullDeck = [
+      ...deckReset,
+      ...iceCreamLayOver
+    ];
+    console.log(iceCreamLayOver);
+    console.log(deckReset);
+    console.log(fullDeck);
     this.newRound(userCount, fullDeck, false);
     this.setState({ 
       roundEnd: false,
@@ -216,6 +237,7 @@ class App extends React.Component {
     } else {
     }
     // this.setState({ deck: newFullDeck })
+    console.log(newFullDeck)
     setTimeout(() => { this.dealCards(newFullDeck) }, 1);
   }
 
@@ -252,8 +274,6 @@ class App extends React.Component {
       hCounter++;
     }
     while (dCounter < userCount) {
-      console.log('running')
-      // console.log(users[userKeys[dCounter]].playedCards.cards.length)
       users[userKeys[dCounter]].handRef = dCounter;
       if (users[userKeys[dCounter]].playedCards && users[userKeys[dCounter]].playedCards.cards.length > 1) {
         const keepDesserts = [];
@@ -272,7 +292,6 @@ class App extends React.Component {
           ready: false,
         }
       }
-      console.log(users[userKeys[dCounter]].playedCards.cards.length)
       dCounter++;
     }
     this.setState({ deck, hands, users });
@@ -317,14 +336,9 @@ class App extends React.Component {
             length = users[user].playedCards.cards.length;
           }
           const lastCard = cardsCopy.pop();
-          console.log(cardsCopy)
-          console.log(lastCard)
-          if (lastCard && lastCard.card === 'miso-soup') {
+          if (lastCard && lastCard.card === 'miso-soup' && users[user].playedCards.ready) {
             users[user].playedCards.cards[length - 1].cancelled = true;
           }
-          // if (users[user].playedCards.cards && lastCard === 'miso-soup') {
-          //   console.log(`${user} played miso too!`)
-          // }
         })
         users[localUser].playedCards.cards.push({
           card: card,
@@ -401,8 +415,7 @@ class App extends React.Component {
           }
           this.setState({ roundEnd: true })
           this.setState({ roundScoreCalculated: true })
-          console.count('revealCards')
-        }, 2000)
+        }, 1000)
       } else {
         users[key].playedCards.ready = false;
       }
@@ -416,16 +429,33 @@ class App extends React.Component {
     const userKeys = Object.keys(users);
     const userCount = userKeys.length;
     const makiCompare = {};
+    const round = this.state.round;
     userKeys.forEach(user => {
       const userCards = users[user].playedCards.cards;
       let score = 0;
       let tempura = 0;
       let sashimi = 0;
       let makiScore = 0;
+      let teaPlayed = false;
+      let desserts = 0;
+      const famCount = {};
       if (users[user].score) {
         score = users[user].score;
       }
       userCards.forEach(card => {
+        if (famCount[cards[card.card].family]) {
+          if (cards[card.card].family === 'wasabi') {
+            famCount['nigiri'] = famCount['nigiri'] + 1;
+          } else {
+            famCount[cards[card.card].family] = famCount[cards[card.card].family] + 1;
+          }
+        } else {
+          if (cards[card.card].family === 'wasabi') {
+            famCount['nigiri'] = 1;
+          } else {
+            famCount[cards[card.card].family] = 1;
+          }
+        }
         if (!card.scored) {
           if (cards[card.card].family === 'nigiri') {
             if (card.wasabiApplied) {
@@ -446,8 +476,14 @@ class App extends React.Component {
           } else if (cards[card.card].family === 'maki') {
             makiScore = makiScore + cards[card.card].value;
             card.scored = true;
+          } else if (cards[card.card].family === 'tea') {
+            teaPlayed = true;
+          } else if (round === 3 && cards[card.card].family === 'ice-cream') {
+            desserts = desserts + 1;
+            card.scored = true;
           }
         }
+
       })
       if (tempura >= 2) {
         const tempuraScore = Math.floor(tempura / 2) * 5;
@@ -460,6 +496,18 @@ class App extends React.Component {
       if (makiScore > 0) {
         makiCompare[user] = makiScore;
       }
+      if (teaPlayed) {
+        const famCountOrdered = Object.entries(famCount).sort(function (a, b) {
+          const aPrice = a[1];
+          const bPrice = b[1];
+          return bPrice - aPrice;
+        });
+        score = score + famCountOrdered[0][1];
+      }
+      if (desserts >= 4) {
+        const dessertScore = Math.floor(desserts / 4) * 12;
+        score = score + dessertScore;
+      }
       users[user].score = score;
       users[user].playedCards.cards = userCards;
     })
@@ -471,29 +519,70 @@ class App extends React.Component {
         return bPrice - aPrice;
       });
       if (userCount > 6) {
+        let firstPlace;
+        let secondPlace;
         let thirdPlace;
         makiWinnerOrder.forEach((winner, index) => {
           if (index === 0) {
-            console.log(users[winner[0]].score)
             users[winner[0]].score = users[winner[0]].score + 6;
-            console.log(winner[0], ' came first!', users[winner[0]].score);
+            firstPlace = winner[1];
           } else if (index === 1) {
-            console.log(users[winner[0]].score)
-            users[winner[0]].score = users[winner[0]].score + 4;
-            console.log(winner[0], ' came second!', users[winner[0]].score);
+            if (winner[1] === firstPlace) {
+              users[winner[0]].score = users[winner[0]].score + 6;
+            } else {
+              users[winner[0]].score = users[winner[0]].score + 4;
+              secondPlace = winner[1];
+            }
           } else if (index === 2) {
-            console.log(users[winner[0]].score)
-            users[winner[0]].score = users[winner[0]].score + 2;
-            console.log(winner[0], ' came third!', users[winner[0]].score);
-            thirdPlace = winner[1];
-          } else if (winner[1] === thirdPlace) {
-            console.log(users[winner[0]].score)
-            users[winner[0]].score = users[winner[0]].score + 2;
-            console.log(winner[0], ' tied third!', users[winner[0]].score);
+            if (winner[1] === firstPlace) {
+              users[winner[0]].score = users[winner[0]].score + 6;
+            } else if (winner[1] === secondPlace) {
+              users[winner[0]].score = users[winner[0]].score + 4;
+            } else {
+              users[winner[0]].score = users[winner[0]].score + 2;
+              thirdPlace = winner[1];
+            }
+          } else {
+            if (!secondPlace) {
+              users[winner[0]].score = users[winner[0]].score + 4;
+              secondPlace = winner[1];
+            } else if (!thirdPlace) {
+              users[winner[0]].score = users[winner[0]].score + 2;
+              thirdPlace = winner[1];
+            } else if (winner[1] === firstPlace) {
+              users[winner[0]].score = users[winner[0]].score + 6;
+            } else if (winner[1] === secondPlace) {
+              users[winner[0]].score = users[winner[0]].score + 4;
+            } else if (winner[1] === thirdPlace) {
+              users[winner[0]].score = users[winner[0]].score + 2;
+            }
           }
         }) 
       } else {
-
+        let firstPlace;
+        let secondPlace;
+        makiWinnerOrder.forEach((winner, index) => {
+          if (index === 0) {
+            users[winner[0]].score = users[winner[0]].score + 6;
+            firstPlace = winner[1];
+          } else if (index === 1) {
+            if (winner[1] === firstPlace) {
+              users[winner[0]].score = users[winner[0]].score + 6;
+            } else {
+              users[winner[0]].score = users[winner[0]].score + 3;
+              secondPlace = winner[1];
+            }
+          } else {
+            if (!secondPlace) {
+              users[winner[0]].score = users[winner[0]].score + 3;
+              secondPlace = winner[1];
+            } else if (winner[1] === firstPlace) {
+              users[winner[0]].score = users[winner[0]].score + 6;
+            } else if (winner[1] === secondPlace) {
+              users[winner[0]].score = users[winner[0]].score + 3;
+            }
+          }
+        }) 
       }
     }
     this.setState({ users })
@@ -542,8 +631,9 @@ class App extends React.Component {
       misoPlayed: false,
       users: users,
       roundScoreCalculated: false,
+      roundEnd: false,
     })
-    this.handleSettingsDisplay();
+    this.setState({ settingsDisplayed: false })
   }
 
   gameBoardDisplay = () => {
@@ -566,6 +656,8 @@ class App extends React.Component {
           newRound={this.newRound}
           startNewRound={this.startNewRound}
           calculateScore={this.calculateScore}
+          round={this.state.round}
+          exitToLobby={this.exitToLobby}
         />
       )
     } else {

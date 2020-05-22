@@ -409,7 +409,7 @@ class GameBoard extends React.Component {
           <div key={user} className={`card-column bg-${users[user].color}-faded`}>
             <div className={`panel-score bg-${users[user].color}`}>
               <h2>{user}:</h2>
-              <strong className="score">0</strong>
+              <strong className="score">{users[user].score ? users[user].score : 0}</strong>
             </div>
             <div className="panel-cards">
               {handDisplay}
@@ -433,7 +433,7 @@ class GameBoard extends React.Component {
         <section className="local-user-cards gutter-1-2">
           <div className={`panel-wrap bg-${users[localUser].color}-faded`}>
             <div className={`panel-score bg-${users[localUser].color}`}>
-              <strong className="score">0</strong>
+                <strong className="score">{this.props.users[localUser].score ? this.props.users[localUser].score : 0}</strong>
               {users[localUser].host ? <span className="host-badge bg-pink">H</span> : null}
             </div>
             <div className="panel-cards">
@@ -460,6 +460,8 @@ class GameBoard extends React.Component {
         newRound={this.props.newRound}
         startNewRound={this.props.startNewRound}
         calculateScore={this.props.calculateScore}
+        round={this.props.round}
+        exitToLobby={this.props.exitToLobby}
       /> : null}
       </>
     )

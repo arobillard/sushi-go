@@ -7,14 +7,14 @@ class RoundEnd extends React.Component {
   componentDidMount() {
     const users = {...this.props.users}
     const localUser = this.props.localUser;
-
-    if (users[localUser].host) {
-      this.props.calculateScore();
-    }
   }
 
   handleStartNextRound = () => {
     this.props.startNewRound();
+  }
+
+  handleExitToLobby = () => {
+    this.props.exitToLobby();
   }
 
   render() {
@@ -25,7 +25,7 @@ class RoundEnd extends React.Component {
     return (
       <div className="pop-up-round-end island">
         <div className="island">
-          <h2>Round End</h2>
+          <h2 className="headline-1">{this.props.round === 3 ? 'Game Over!' : `End of Round ${this.props.round}`}</h2>
         </div>
         <div className="points-grid grid-flex island-1-2">
           {userKeys.map(user => {
@@ -41,7 +41,7 @@ class RoundEnd extends React.Component {
           })}
         </div>
         <div className="island">
-          <button className="btn" onClick={this.handleStartNextRound}>Start Next Round!</button>
+          {this.props.round === 3 ? <button className="btn" onClick={this.handleExitToLobby}>Return to Lobby</button> : <button className="btn" onClick={this.handleStartNextRound}>Start Next Round!</button>}
         </div>
       </div>
     )

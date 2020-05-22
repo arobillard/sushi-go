@@ -26,6 +26,7 @@ class CardSushiFull extends React.Component {
   confirmCard = (e) => {
     const card = e.currentTarget.closest('.card-sushi').dataset.card; 
     this.props.userPlayCard(card);
+    this.setState({ confirm: false })
   }
   
   cancelCard = (e) => {

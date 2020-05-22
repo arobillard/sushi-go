@@ -11,7 +11,7 @@
   color: #fff;
   text-align: center;
   flex-shrink: 0;
-  z-index: 5;
+  z-index: 10;
   border-radius: 10px;
   flex-direction: column;
   transition:
@@ -107,7 +107,7 @@
         color: $c-red;
         font-size: 3rem;
         text-shadow: $s-grey-2;
-        z-index: 5;
+        z-index: 10;
       }
     }
     .card-title {
@@ -149,15 +149,30 @@
     margin-left: 0;
   }
   &:nth-child(2) {
-    z-index: 4;
+    z-index: 9;
   }
   &:nth-child(3) {
-    z-index: 3;
+    z-index: 8;
   }
   &:nth-child(4) {
-    z-index: 2;
+    z-index: 7;
   }
   &:nth-child(5) {
+    z-index: 6;
+  }
+  &:nth-child(6) {
+    z-index: 5;
+  }
+  &:nth-child(7) {
+    z-index: 4;
+  }
+  &:nth-child(8) {
+    z-index: 3;
+  }
+  &:nth-child(8) {
+    z-index: 2;
+  }
+  &:nth-child(10) {
     z-index: 1;
   }
 }
