@@ -114,7 +114,7 @@ export function deck() {
   
   let deck = [];
 
-  Object.keys(cards).map(key => {
+  Object.keys(cards).forEach(key => {
     let i = 0;
     while (i < cards[key].count) {
       if (cards[key].type === 'dessert') {

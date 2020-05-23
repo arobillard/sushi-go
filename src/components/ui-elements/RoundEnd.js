@@ -1,13 +1,7 @@
 import React from 'react';
-import { cards } from '../../cardData'
 import PointsGridItem from './PointsGridItem';
 
 class RoundEnd extends React.Component {
-
-  componentDidMount() {
-    const users = {...this.props.users}
-    const localUser = this.props.localUser;
-  }
 
   handleStartNextRound = () => {
     this.props.startNewRound();
@@ -17,11 +11,34 @@ class RoundEnd extends React.Component {
     this.props.exitToLobby();
   }
 
+  handleRestart = () => {
+    this.props.exitToLobby();
+    this.props.startGame();
+  }
+
+  nextRoundBtn = () => {
+    const users = { ...this.props.users }
+    const localUser = this.props.localUser;
+    const host = users[localUser].host;
+    if (host) {
+      return (
+        <div className="island">
+          {this.props.round === 3 ? <><button className="btn push-r" onClick={this.handleExitToLobby}>Return to Lobby</button><button className="btn btn-pink" onClick={this.handleRestart}>Restart Game</button></> : <button className="btn" onClick={this.handleStartNextRound}>Start Next Round!</button>}
+        </div>
+      )
+    }
+  }
+
   render() {
     const users = {...this.props.users}
     const userKeys = Object.keys(users);
     const userAmount = userKeys.length;
-    const widthL = userKeys.length / 2;
+    let widthL;
+    if (userAmount === 2 || userAmount === 4 || userAmount === 7 || userAmount === 8) {
+      widthL = 4
+    } else if (userAmount === 3 || userAmount === 5 || userAmount === 6) {
+      widthL = 3;
+    }
     return (
       <div className="pop-up-round-end island">
         <div className="island">
@@ -40,9 +57,7 @@ class RoundEnd extends React.Component {
             )
           })}
         </div>
-        <div className="island">
-          {this.props.round === 3 ? <button className="btn" onClick={this.handleExitToLobby}>Return to Lobby</button> : <button className="btn" onClick={this.handleStartNextRound}>Start Next Round!</button>}
-        </div>
+        {this.nextRoundBtn()}
       </div>
     )
   }

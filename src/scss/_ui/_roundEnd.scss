@@ -13,9 +13,36 @@
     color: $c-purple;
     text-shadow: $s-pink-2;
   }
+  .points-grid {
+    > div:first-child {
+      transform: rotate(-2deg);
+    }
+    > div:nth-child(2) {
+      transform: rotate(2deg);
+    }
+    > div:nth-child(3) {
+      transform: rotate(-1deg);
+    }
+    > div:nth-child(4) {
+      transform: rotate(2deg);
+    }
+    > div:nth-child(5) {
+      transform: rotate(-2deg);
+    }
+    > div:nth-child(6) {
+      transform: rotate(-2deg);
+    }
+    > div:nth-child(7) {
+      transform: rotate(5deg);
+    }
+    > div:nth-child(8) {
+      transform: rotate(-1deg);
+    }
+  }
   .points-grid-item {
     border-radius: 20px;
     box-shadow: $s-grey-4;
+    transform: rotate(1deg);
     > div {
       position: absolute;
       top: 50%;
@@ -30,7 +57,7 @@
     strong {
       color: #fff;
       @extend .font-alt;   
-      font-size: 3rem;
+      font-size: 4rem;
       text-shadow: $s-grey-2;
     }
   }

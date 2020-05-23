@@ -293,7 +293,7 @@ class GameBoard extends React.Component {
             const famCards = [];
             hand.forEach(card => {
               const cardData = cards[card.card];
-              if (family === 'maki' && cardData.family === 'maki' && card.revealed == true) {
+              if (family === 'maki' && cardData.family === 'maki' && card.revealed === true) {
                 makiCount = makiCount + cardData.value;
               }
               if (cardData.family === family) {
@@ -405,9 +405,10 @@ class GameBoard extends React.Component {
             }
           })
         }   
+        const userReady = users[user].playedCards ? users[user].playedCards.ready : false;
         userColumns.push (
           <div key={user} className={`card-column bg-${users[user].color}-faded`}>
-            <div className={`panel-score bg-${users[user].color}`}>
+            <div className={`panel-score bg-${users[user].color}${userReady ? ' ready' : ''}`}>
               <h2>{user}:</h2>
               <strong className="score">{users[user].score ? users[user].score : 0}</strong>
             </div>
@@ -424,21 +425,27 @@ class GameBoard extends React.Component {
     return userColumns;
   }
 
+  handleReady = () => {
+    const localUser = this.props.localUser;
+    this.props.setReady(localUser);
+  }
+
   render() {
     const localUser = this.props.localUser;
     const users = this.props.users;
+    const ready = users[localUser].playedCards ? users[localUser].playedCards.ready : false;
     return (
       <>
         <div className={`card-panels wrapper gutter-1-2${ this.props.roundEnd === true ? ' opacity-1-4' : ''}`}>
         <section className="local-user-cards gutter-1-2">
           <div className={`panel-wrap bg-${users[localUser].color}-faded`}>
             <div className={`panel-score bg-${users[localUser].color}`}>
-                <strong className="score">{this.props.users[localUser].score ? this.props.users[localUser].score : 0}</strong>
+              <strong className="score">{this.props.users[localUser].score ? this.props.users[localUser].score : 0}</strong>
+              <button className={`btn-ready${ready ? ' ready' : ''}`} onClick={this.handleReady}>Ready{ready ? '!' : ''}</button>
               {users[localUser].host ? <span className="host-badge bg-pink">H</span> : null}
             </div>
             <div className="panel-cards">
               <h2>Your Sushi</h2>
-              {/* {this.displayLocalUserCards()} */}
               {this.myPlayedCards()}
             </div>
               <div className={`panel-dessert bg-${users[localUser].color === 'pink' ? 'purple' : 'pink'}`}>
@@ -462,6 +469,7 @@ class GameBoard extends React.Component {
         calculateScore={this.props.calculateScore}
         round={this.props.round}
         exitToLobby={this.props.exitToLobby}
+        startGame={this.props.startGame}
       /> : null}
       </>
     )

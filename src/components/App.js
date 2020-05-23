@@ -237,13 +237,12 @@ class App extends React.Component {
     } else {
     }
     // this.setState({ deck: newFullDeck })
-    console.log(newFullDeck)
     setTimeout(() => { this.dealCards(newFullDeck) }, 1);
   }
 
   dealCards = (newFullDeck) => {
     const deck = [...newFullDeck];
-    const hands = {...this.state.hands};
+    const hands = [];
     const userKeys = Object.keys(this.state.users);
     const userCount = userKeys.length;
     const users = {...this.state.users};
@@ -302,7 +301,6 @@ class App extends React.Component {
     const users = {...this.state.users};
     const userKeys = Object.keys(users);
     const hands = {...this.state.hands};
-    const handRef = users[localUser].handRef;
     // Add to users played cards
     if (!users[localUser].playedCards.cards) {
       users[localUser].playedCards.cards = [];
@@ -315,18 +313,14 @@ class App extends React.Component {
         revealed: false,
         wasabiApplied: true
       })
-      users[localUser].playedCards.wasabiWaiting = false;
+      if (users[localUser].playedCards.tripleWasabiWaiting) {
+        users[localUser].playedCards.tripleWasabiWaiting = false
+      } else if (users[localUser].playedCards.doubleWasabiWaiting) {
+        users[localUser].playedCards.doubleWasabiWaiting = false
+      } else {
+        users[localUser].playedCards.wasabiWaiting = false;
+      }
     } else if (card === 'miso-soup') {
-      // const cardNum = users[localUser].playedCards.cards.length;
-      // let misoPlayed = false;
-      // userKeys.forEach(user => {
-      //   if (user !== localUser) {
-      //     if (users[user].playedCards.cards && users[user].playedCards.cards[cardNum] && users[user].playedCards.cards[cardNum].card === 'miso-soup') {
-      //        misoPlayed = true;
-      //       users[user].playedCards.cards[cardNum].cancelled = true;
-      //     }
-      //   }
-      // })
       if (this.state.misoPlayed === true) {
         userKeys.forEach(user => {
           let length =  0;
@@ -363,19 +357,15 @@ class App extends React.Component {
       })
     }
     if (card === 'wasabi') {
+      if (users[localUser].playedCards.doubleWasabiWaiting) {
+        users[localUser].playedCards.tripleWasabiWaiting = true
+      } else if (users[localUser].playedCards.wasabiWaiting) {
+        users[localUser].playedCards.doubleWasabiWaiting = true;
+      }
       users[localUser].playedCards.wasabiWaiting = true;
     }
-    // mark user as ready
     users[localUser].playedCards.ready = true;
     this.setState({ users })
-    // remove from hands state
-    const newHand = [
-      ...hands[handRef].slice(0, hands[handRef].indexOf(card)),
-      ...hands[handRef].slice(hands[handRef].indexOf(card) + 1),
-    ]
-    hands[handRef] = newHand;
-    setTimeout(() => { this.setState({ hands }) }, 500);
-    // check if all players are ready
     let i = 0;
     let ready = false;
     while (i < userKeys.length) {
@@ -388,15 +378,36 @@ class App extends React.Component {
       i++
     }
     if (ready) {
+      if (hands[0].length > 1) {
+        userKeys.forEach(user => {
+          const oldHandRef = users[user].handRef;
+          const lastCardRef = users[user].playedCards.cards.length - 1;
+          const lastCardPlayed = users[user].playedCards.cards[lastCardRef].card;
+          const newHand = [
+            ...hands[oldHandRef].slice(0, hands[oldHandRef].indexOf(lastCardPlayed)),
+            ...hands[oldHandRef].slice(hands[oldHandRef].indexOf(lastCardPlayed) + 1),
+          ]
+          hands[oldHandRef] = newHand;
+        })
+      }
       this.revealCards()
-      this.setState({ misoPlayed: false })
+      this.setState({
+        misoPlayed: false,
+        hands: hands
+      })
     }
+  }
+
+  setReady = (user) => {
+    const users = {...this.state.users};
+    users[user].playedCards.ready = true;
+    this.setState({ users })
   }
 
   revealCards = () => {
     const users = { ...this.state.users };
     const userKeys = Object.keys(users);
-    const hands = {...this.state.hands}
+    const hands = [...this.state.hands]
     userKeys.forEach(key => {
       const cards = users[key].playedCards.cards;
       cards.forEach(card => {
@@ -408,7 +419,7 @@ class App extends React.Component {
       } else {
         users[key].handRef++;
       }
-      if (Object.keys(hands).length < userKeys.length) {
+      if (hands[0].length <= 1) {
         setTimeout(() => {
           if (this.state.roundScoreCalculated === false) {
             this.calculateScore();
@@ -658,6 +669,8 @@ class App extends React.Component {
           calculateScore={this.calculateScore}
           round={this.state.round}
           exitToLobby={this.exitToLobby}
+          setReady={this.setReady}
+          startGame={this.startGame}
         />
       )
     } else {
