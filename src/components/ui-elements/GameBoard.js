@@ -37,6 +37,7 @@ class GameBoard extends React.Component {
     const handFamilies = [];
     const handDisplay = [];
     const handLocked = users[localUser].playedCards ? users[localUser].playedCards.ready : false;
+    let cardCount = 0;
     if (hand) {
       hand.forEach(key => {
         if (!handFamilies.includes(cards[key].family)) {
@@ -48,6 +49,7 @@ class GameBoard extends React.Component {
     handFamilies.forEach(family => {
       hand.forEach(card => {
         if (cards[card].family === family) {
+          cardCount++;
           const cardData = cards[card];
           handDisplay.push(
             <CardSushiFull
@@ -73,7 +75,7 @@ class GameBoard extends React.Component {
           </div>
           <span className="headline-3">{this.state.handVisible ? 'X' : '<'}</span>
         </button>
-        <div className="hand-cards island">
+        <div className={`hand-cards island hand-size-${cardCount}`}>
           {handDisplay}
         </div>
       </aside>
@@ -434,6 +436,7 @@ class GameBoard extends React.Component {
     const localUser = this.props.localUser;
     const users = this.props.users;
     const ready = users[localUser].playedCards ? users[localUser].playedCards.ready : false;
+    const numOpponents = Object.keys(users).length - 1;
     return (
       <>
         <div className={`card-panels wrapper gutter-1-2${ this.props.roundEnd === true ? ' opacity-1-4' : ''}`}>
@@ -456,7 +459,7 @@ class GameBoard extends React.Component {
             </div>
           </div>
         </section>
-        <section className="user-cards gutter-1-2 push">
+        <section className={`user-cards gutter-1-2 push opponent-amount-${numOpponents}`}>
           {this.displayPlayerPlayedCards()}
         </section>
       </div>

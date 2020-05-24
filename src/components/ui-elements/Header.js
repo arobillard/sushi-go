@@ -7,13 +7,13 @@ class Header extends React.Component {
     if (this.props.subtitle === undefined) {
       return (
         <Link to="/">
-          <h1 className="logo">Sushi Go!</h1>
+          <h1 className="logo">S<span className="s-hide">ushi </span>G<span className="s-hide">o</span>!</h1>
         </Link>
       )
     } else {
       return (
         <Link to="/">
-          <strong className="logo">Sushi Go!</strong>
+          <strong className="logo">S<span className="s-hide">ushi </span>G<span className="s-hide">o</span>!</strong>
         </Link>
       )
     }
@@ -36,14 +36,14 @@ class Header extends React.Component {
       if (this.props.host && this.props.gameStart) {
         return (
           <div className="game-info-wrap pad-t-1-2 pad-b-1-2">
-            <button onClick={this.handleSettings} className="push-r-2">Settings</button>
-            <p className="push-0">Gamecode: <span className="gamecode push-l">{this.props.gamecode}</span></p>
+            <button onClick={this.handleSettings} className="push-r-2 ar-icon-wrap"><i className="ar-icon-1-1-2 push-1-2 push-r-1-2"><img src="images/i-settings.svg" alt="" /></i><span className="ar-icon-label">Settings</span></button>
+            <p className="push-0"><span className="gamecode-title">Gamecode: </span><span className="gamecode push-l">{this.props.gamecode}</span></p>
           </div>
         )
       }
       return (
         <div className="game-info-wrap pad-t-1-2 pad-b-1-2">
-          <p className="push-0">Gamecode: <span className="gamecode push-l">{this.props.gamecode}</span></p>
+          <p className="push-0"><span className="gamecode-title">Gamecode: </span><span className="gamecode push-l">{this.props.gamecode}</span></p>
         </div>
       )
     }

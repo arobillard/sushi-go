@@ -25,16 +25,16 @@
     }
     .subtitle {
       font-size: 2rem;
-      text-shadow: $s-pink-2;
+      text-shadow: $s-pink;
       margin-bottom: -.5rem;
     }
     .game-info-wrap {
       font-size: 1.5rem;
-      text-shadow: $s-pink-2;
+      text-shadow: $s-pink;
       display: flex;
       align-items: flex-end;
       button {
-        text-shadow: $s-pink-2;
+        text-shadow: $s-pink;
         margin-bottom: .15rem;
       }
       .gamecode {
@@ -42,11 +42,92 @@
         font-size: 2rem;
         background-color: #fff;
         color: $c-pink;
-        text-shadow: $s-purple-2;
+        text-shadow: $s-purple;
         box-shadow: $s-pink-2;
         padding: .5rem .75rem 0;
         border-radius: 10px;
         letter-spacing: 2px;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    @media only screen and (min-width: 60em) {
+    
+      .wrapper {
+        .subtitle {
+          font-size: 1.5rem;
+        }
+      }
+    
+    }
+  }
+
+  @media only screen and (max-width: 59.999em) {
+    .wrapper {
+      .logo {
+        font-size: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: .5rem;
+        margin-bottom: -.65rem;
+      }
+      .subtitle {
+        font-size: 1.5rem;
+      }
+      .gamecode-title,
+      .ar-icon-label {
+        display: none;
+      }
+      .ar-icon-wrap {
+        margin-right: 0;
+      }
+      .ar-icon-1-1-2 {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+      .game-info-wrap {
+        .gamecode {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 37.999em) {
+    .wrapper {
+      .logo {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: .75rem;
+        margin-bottom: -.25rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      .ar-icon-1-1-2 {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-bottom: .125rem
+      }
+      .game-info-wrap {
+        .gamecode {
+          font-size: 1.5rem;
+          padding: .25rem .55rem 0;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .wrapper {
+      .logo {
+        font-size: 1.75rem;
+        .s-hide {
+          display: none;
+        }
       }
     }
   }

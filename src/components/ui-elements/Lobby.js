@@ -39,12 +39,12 @@ class Lobby extends React.Component {
   render() {
     return (
       <div className="wrapper grid-flex-v-middle gutter-1-2 pad-t-1-2 pad-b-4">
-        <div className="xs-1 m-1-2 island-1-2">
+        <div className="gamecode-box xs-1 l-1-2 island-1-2">
           <h2 className="text-purple shadow-t-pink-2">Gamecode</h2>
           <strong className="gamecode-large block font-alt text-pink shadow-t-purple-4">{this.props.gamecode}</strong>
           {this.startGame()}
         </div>
-        <div className="xs-1 m-1-2">
+        <div className="xs-1 l-1-2 island-1-2">
           {this.usersDisplay()}
         </div>
       </div>

@@ -95,3 +95,52 @@
     transform: rotate(-1deg);
   }
 }
+
+@media only screen and (max-width: 59.999em) {
+  .gamecode-box {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .gamecode-large {
+    font-size: 6rem;
+  }
+  .player-card-grid {
+    @media only screen and (min-width: 38em) {
+      > div:nth-child(5) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .player-card-grid {
+    .player-card {
+      &-name {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 37.999em) {
+  .player-card-grid {
+    .player-card {
+      // &-icon {
+      // }
+      &-name {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 24.999em) {
+
+  .player-card-grid {
+    > div:nth-child(5) {
+      margin-left: 0;
+    }
+  }
+
+}

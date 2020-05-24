@@ -363,9 +363,29 @@
     }
   }
   .user-cards {
-    display: flex;
+    display: grid;
     flex-grow: 2;
     position: relative;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    &.opponent-amount-7 {
+      grid-template-columns: repeat(7, 1fr);
+    }
+    &.opponent-amount-6 {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    &.opponent-amount-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    &.opponent-amount-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &.opponent-amount-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &.opponent-amount-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .card-column {
       display: flex;
       flex-direction: column;
@@ -374,9 +394,9 @@
       overflow: hidden;
       width: 100%;
       color: #fff;
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
+      // &:not(:last-child) {
+      //   margin-right: 1rem;
+      // }
       .panel-score {
         display: flex;
         justify-content: center;
@@ -552,7 +572,7 @@
       top: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      background-color: none;;
+      background-color: transparent;
     }
   }
   .hand-cards {
@@ -561,9 +581,42 @@
     grid-template-rows: repeat(2, 14rem);
     column-gap: 1rem;
     row-gap: 1rem;
+    .card-sushi.wasabi + .tea {
+      margin: 0;
+    }
     .card-sushi {
       width: 10rem;
       height: 14rem;
+      &:first-child {
+        order: 1;
+      }
+      &:nth-child(2) {
+        order: 2;
+      }
+      &:nth-child(3) {
+        order: 3;
+      }
+      &:nth-child(4) {
+        order: 4;
+      }
+      &:nth-child(5) {
+        order: 5;
+      }
+      &:nth-child(6) {
+        order: 6;
+      }
+      &:nth-child(7) {
+        order: 7;
+      }
+      &:nth-child(8) {
+        order: 8;
+      }
+      &:nth-child(9) {
+        order: 9;
+      }
+      &:nth-child(10) {
+        order: 10;
+      }
       .card-info {
         .card-title {
           font-size: 1.25rem;
@@ -622,4 +675,330 @@
       transform: translate(-50%, -30%) scale(0);
     }
   }
+}
+
+@media only screen and (max-width: 75.999em) {
+
+  .card-panels { 
+    .user-cards {
+      &.opponent-amount-7 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      &.opponent-amount-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .card-column {
+        .panel-cards {
+          min-height: 10rem;
+        }
+      }
+    }
+  }
+
+}
+
+@media only screen and (max-width: 59.999em) {
+  .card-panels { 
+    .user-cards {
+      &.opponent-amount-7 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &.opponent-amount-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      &.opponent-amount-5 {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      &.opponent-amount-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &.opponent-amount-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      &.opponent-amount-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media only screen and (min-width: 800px) {
+      
+        &.opponent-amount-7 {
+          .card-column {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            .panel-score {
+              // width: 100%;
+              flex-grow: 2;
+              order: 0;
+              &::before {
+                transform: translateY(-2rem) scale(0);
+              }
+              &.ready::before {
+                transform: translateY(-2rem) scale(1);
+              }
+            }
+            .panel-cards {
+              min-height: auto;
+              display: flex;
+              align-items: center;
+              width: 100%;
+              order: 2;
+              .sushi-family:not(:last-child) {
+                margin-bottom: 0;
+                margin-right: .5rem;
+              }
+              .card-sushi.tea:not(:first-child), .card-sushi.wasabi:not(:first-child) {
+                margin-left: .5rem;
+              }
+            }
+            .panel-dessert {
+              min-width: 4rem;
+              min-height: 4rem;
+              height: auto;
+              justify-content: center;
+              align-items: center;
+              order: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  .hand {
+    .hand-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 9rem);
+      grid-template-rows: repeat(2, 11.25rem);
+      column-gap: .5rem;
+      row-gap: .5rem;
+      .card-sushi {
+        width: 9rem;
+        height: 11.25rem;
+        .card-image {
+          img {
+            width: 80%;
+          }
+        }
+        .card-info {
+          .card-title {
+            font-size: 1.25rem;
+            margin-bottom: -.125rem;
+          }
+          .card-score-desc {
+            font-size: 1rem;
+          }
+        }
+        &.miso-soup, &.tea {
+          .card-score-desc {
+            font-size: .75rem;
+          }
+        }
+        .card-maki-icons {
+          .maki-icon {
+            width: 2.5rem;
+          }
+        }
+      }
+      &.hand-size-10 {
+        padding-right: 4rem;
+        grid-template-columns: repeat(4, 6rem);
+        grid-template-rows: auto;
+        .card-confirm {
+          align-items: flex-end;
+          padding-right: .5rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 799px) {
+
+  .card-panels { 
+    .user-cards {
+      &.opponent-amount-7 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+}
+
+@media only screen and (max-width: 37.999em) {
+  .card-panels {
+    padding-top: 1rem;
+  }
+  .hand {
+    z-index: 999;
+    top: auto;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 6.3rem);
+    padding-top: 3.5rem;
+    max-width: calc(100vw - 2rem);
+    max-height: 90vh;
+    border-radius: 0 0 20px 20px;
+    transition: transform .2s;
+    display: flex;
+    flex-direction: column-reverse;
+    @media only screen and (min-width: 450px) {
+      transform: translate(-50%, 6rem);
+      padding-top: 3.5rem;
+    }
+    &.open {
+      transform: translate(-50%, 100%);
+      .hand-title {
+        span {
+          transform: translateY(-40%) rotate(0);
+        }
+      }
+    }
+    &.locked {
+      transform: translate(-50%, 0);
+    }
+    .hand-title {
+      border-radius: 0 0 20px 20px;
+      color: #fff;
+      position: relative;
+      width: 100%;
+      transition: opacity .2s;
+      &:focus {
+        outline: 3px solid #000;
+        outline-offset: 2px;
+      }
+      &:hover {
+        opacity: .7;
+        cursor: pointer;
+      }
+      .hand-title-rotate {
+        position: static;
+        top: auto;
+        left: auto;
+        min-width: auto;
+        text-align: center;
+        transform: none;
+        h2 {
+          text-shadow: $s-grey-2;
+          display: inline-block;
+          padding-top: .25rem;
+          margin-bottom: -.25rem;
+          font-size: 2rem;
+        }
+      }
+      span {
+        text-shadow: $s-grey-2;
+        position: absolute;
+        top: 50%;
+        left: auto;
+        right: 1rem;
+        transform: translateY(-50%) rotate(-90deg);
+        font-size: 1.5rem;
+      }
+    }
+    .hand-cards {
+      grid-template-columns: repeat(3, 9rem);
+      grid-template-rows: auto;
+      column-gap: .5rem;
+      row-gap: .5rem;
+      overflow-y: scroll;
+      margin-bottom: 1rem;
+      .card-sushi {
+        width: 9rem;
+        height: 11.25rem;
+        .card-image {
+          img {
+            width: 80%;
+          }
+        }
+        .card-info {
+          .card-title {
+            font-size: 1.25rem;
+            margin-bottom: -.125rem;
+          }
+          .card-score-desc {
+            font-size: 1rem;
+          }
+        }
+        &.miso-soup, &.tea {
+          .card-score-desc {
+            font-size: .75rem;
+          }
+        }
+      }
+      &.hand-size-10 {
+        padding-right: 1rem;
+        grid-template-columns: repeat(3, 9rem);
+        grid-template-rows: auto;
+        .card-confirm {
+          align-items: center;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 525px) {
+  .card-panels { 
+    .user-cards {
+      grid-template-columns: repeat(1, 1fr);
+      &.opponent-amount-7,
+      &.opponent-amount-6,
+      &.opponent-amount-5,
+      &.opponent-amount-4,
+      &.opponent-amount-3,
+      &.opponent-amount-2,
+      &.opponent-amount-1 {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .card-column {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: stretch;
+          .panel-score {
+            // width: 100%;
+            flex-grow: 2;
+            order: 0;
+            &::before {
+              transform: translateY(-2rem) scale(0);
+            }
+            &.ready::before {
+              transform: translateY(-2rem) scale(1);
+            }
+          }
+          .panel-cards {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            order: 2;
+            .sushi-family:not(:last-child) {
+              margin-bottom: 0;
+              margin-right: .5rem;
+            }
+            .card-sushi.tea:not(:first-child), .card-sushi.wasabi:not(:first-child) {
+              margin-left: .5rem;
+            }
+          }
+          .panel-dessert {
+            min-width: 4rem;
+            min-height: 4rem;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            order: 1;
+          }
+        }
+      }
+  }
+  .hand {
+    .hand-cards {
+      grid-template-columns: repeat(2, 9rem);
+      &.hand-size-10 {
+        grid-template-columns: repeat(2, 9rem);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 24.999em) {
+  
 }

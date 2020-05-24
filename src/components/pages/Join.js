@@ -18,7 +18,7 @@ class Join extends React.Component {
     return (
       <>
         <Header />
-        <main id="main" role="main" className="flex-children-center pad-t-b-8">
+        <main id="main" role="main" className="flex-children-center pad-t-b-8 gutter">
           <form className="pop-up-join-game island-2" onSubmit={this.joinGame}>
             <h2>Join or host a game!</h2>
             <p>To start a new game, simply enter your name and a new unique <strong>Gamecode</strong> in the form below and hit <em>Start Playing</em>! If you wish to join a game someone else created, enter your name and their <strong>Gamecode</strong> and hit <em>Start Playing</em>!</p>

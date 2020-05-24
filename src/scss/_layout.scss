@@ -91,6 +91,8 @@ svg.img-flex {
   height: 100%;
 }
 
+// Icons
+
 .icon  {
   display: flex;
   position: relative;
@@ -106,10 +108,29 @@ svg.img-flex {
     height: 100%;
   }
 }
+
 .icon-more-menu {
   @extend .icon;
   width: 12px;
 }
+
+.ar-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .ar-icon {
+    display: flex;
+    &-1-1-2 {
+      width: 1.5rem;
+      height: 1.5rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
 // Lists
 
 .list-group, .list-group-flex {
@@ -510,31 +531,52 @@ input {
 .grid-flex {
   display: flex;
   flex-wrap: wrap;
-  .xs-1 {
-    width: 100%;
-  }
-  .xs-1-2 {
+}
+.xs-1 {
+  width: 100%;
+}
+.xs-1-2 {
+  width: 50%;
+}
+
+@media only screen and (min-width: 25em) {
+
+  .s-1-2 {
     width: 50%;
   }
-  @media only screen and (min-width: 38em) {
-  
-    .m-1-2 {
-      width: 50%;
-    }
-  
-    .m-1-4 {
-      width: 25%;
-    }
-  
-    .m-1-3 {
-      width: 33.3333%;
-    }
-  
-    .m-2-3 {
-      width: 66.6666%;
-    }
-  
+
+  .s-1-4 {
+    width: 25%;
   }
+
+  .s-1-3 {
+    width: 33.3333%;
+  }
+
+  .s-2-3 {
+    width: 66.6666%;
+  }
+
+}
+
+@media only screen and (min-width: 38em) {
+
+  .m-1-2 {
+    width: 50%;
+  }
+
+  .m-1-4 {
+    width: 25%;
+  }
+
+  .m-1-3 {
+    width: 33.3333%;
+  }
+
+  .m-2-3 {
+    width: 66.6666%;
+  }
+
 }
 @media only screen and (min-width: 60em) {
 
@@ -723,6 +765,27 @@ main {
     font-size: 2rem;
     color: $c-pink;
     text-shadow: $s-purple;
+  }
+  @media only screen and (max-width: 37.999em) {
+  
+    .grid-flex {
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+    }
+    input, .btn{
+      border-radius: 10px;
+      border: 3px solid $c-purple;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      width: auto;
+      box-shadow: $s-grey-2;
+    }
+  
   }
 }
 

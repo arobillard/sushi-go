@@ -9,7 +9,7 @@ class LobbyPlayerGrid extends React.Component {
 
     while (i < addAmount) {
       blanks.push(
-        <div key={`unclaimed-${i}`} className="xs-1-2 m-1-3 island-1-2">
+        <div key={`unclaimed-${i}`} className="xs-1-2 s-1-3 m-1-4 l-1-3 island-1-2">
           <div className="embed-1by1 player-card no-user">
             <div className="player-card-icon"></div>
             <h3 className="player-card-name">---</h3>
@@ -30,7 +30,7 @@ class LobbyPlayerGrid extends React.Component {
     return (
       <div className="player-card-grid grid-flex">
         {Object.keys(this.props.users).map(key => (
-          <div key={key} className="xs-1-2 m-1-3 island-1-2">
+          <div key={key} className="xs-1-2 s-1-3 m-1-4 l-1-3 island-1-2">
             <div className={`embed-1by1 player-card bg-${users[key].color}${users[key].host ? ' host' : ''}`}>
               <div className="player-card-icon"></div>
               <h3 className="player-card-name">{users[key].userName}</h3>

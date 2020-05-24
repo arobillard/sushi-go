@@ -12,39 +12,375 @@ class App extends React.Component {
   state = {
     deck: {},
     users: {
-      // Adam: {
-      //   userName: "Adam",
-      //   color: "purple",
-      //   host: true
-      // },
-      // Hannah: {
-      //   userName: "Hannah",
-      //   color: "green"
-      // },
-      // Patti: {
-      //   userName: "Patti",
-      //   color: "turquoise"
-      // },
-      // Hugh: {
-      //   userName: "Hugh",
-      //   color: "yellow"
-      // },
-      // Tim: {
-      //   userName: "Tim",
-      //   color: "cyan"
-      // },
-      // Caitlin: {
-      //   userName: "Caitlin",
-      //   color: "navy"
-      // },
-      // Andrew: {
-      //   userName: "Andrew",
-      //   color: "pink"
-      // },
-      // Kyla: {
-      //   userName: "Kyla",
-      //   color: "red"
-      // },
+      "Adam": {
+        "color": "purple",
+        "handRef": 0,
+        "host": true,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-3",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tea",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-1",
+              "revealed": true
+            },
+            {
+              "cancelled": true,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            }
+          ],
+          "ready": false
+        },
+        "userName": "Adam"
+      },
+      "Fox": {
+        "color": "cyan",
+        "handRef": 0,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "wasabi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "squid",
+              "revealed": true,
+              "wasabiApplied": true
+            },
+            {
+              "scored": false,
+              "card": "tea",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "egg",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "salmon",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "salmon",
+              "revealed": true
+            },
+            {
+              "cancelled": false,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            }
+          ],
+          "ready": true,
+          "wasabiWaiting": false
+        },
+        "userName": "Fox"
+      },
+      "Iroh": {
+        "color": "green",
+        "handRef": 1,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "squid",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-3",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-1",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            },
+            {
+              "cancelled": true,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            }
+          ],
+          "ready": true
+        },
+        "userName": "Iroh"
+      },
+      "Opera": {
+        "color": "pink",
+        "handRef": 2,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "wasabi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-3",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-1",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "cancelled": true,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-1",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            }
+          ],
+          "ready": true,
+          "wasabiWaiting": true
+        },
+        "userName": "Opera"
+      },
+      "Safari": {
+        "color": "turquoise",
+        "handRef": 3,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "cancelled": false,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "salmon",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "egg",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            }
+          ],
+          "ready": true
+        },
+        "userName": "Safari"
+      },
+      "Safe-Fox": {
+        "color": "navy",
+        "handRef": 4,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "wasabi",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "squid",
+              "revealed": true,
+              "wasabiApplied": true
+            },
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "cancelled": false,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            },
+            {
+              "cancelled": false,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "egg",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "salmon",
+              "revealed": true
+            }
+          ],
+          "ready": true,
+          "wasabiWaiting": false
+        },
+        "userName": "Safe-Fox"
+      },
+      "Safe-Saf": {
+        "color": "yellow",
+        "handRef": 5,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-2",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-2",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "maki-2",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "sashimi",
+              "revealed": true
+            }
+          ],
+          "ready": true
+        },
+        "userName": "Safe-Saf"
+      },
+      "Safe-op": {
+        "color": "red",
+        "handRef": 6,
+        "playedCards": {
+          "cards": [
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tea",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "tempura",
+              "revealed": true
+            },
+            {
+              "cancelled": false,
+              "scored": false,
+              "card": "miso-soup",
+              "revealed": true
+            },
+            {
+              "scored": false,
+              "card": "ice-cream",
+              "revealed": true
+            }
+          ],
+          "ready": true
+        },
+        "userName": "Safe-op"
+      }
     },
     localUser: '',
     gameStart: {},
@@ -71,10 +407,10 @@ class App extends React.Component {
         context: this,
         state: 'deck'
       });
-      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
-        context: this,
-        state: 'users'
-      });
+      // this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
+      //   context: this,
+      //   state: 'users'
+      // });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameStart`, {
         context: this,
         state: 'gameStart'
@@ -94,16 +430,20 @@ class App extends React.Component {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/misoPlayed`, {
         context: this,
         state: 'misoPlayed'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/roundScoreCalculated`, {
+        context: this,
+        state: 'roundScoreCalculated'
       });
     } else {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/deck`, {
         context: this,
         state: 'deck'
       });
-      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
-        context: this,
-        state: 'users'
-      });
+      // this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/users`, {
+      //   context: this,
+      //   state: 'users'
+      // });
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameStart`, {
         context: this,
         state: 'gameStart'
@@ -123,6 +463,10 @@ class App extends React.Component {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/misoPlayed`, {
         context: this,
         state: 'misoPlayed'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/roundScoreCalculated`, {
+        context: this,
+        state: 'roundScoreCalculated'
       });
       // console.log(this.state.gameStart)
       // if (this.state.gameStart === {}) {
@@ -284,11 +628,17 @@ class App extends React.Component {
         users[userKeys[dCounter]].playedCards = {
           cards: [...keepDesserts],
           ready: false,
+          wasabiWaiting: false,
+          doubleWasabiWaiting: false,
+          tripleWasabiWaiting: false,
         }
       } else {
         users[userKeys[dCounter]].playedCards = {
           cards: [],
           ready: false,
+          wasabiWaiting: false,
+          doubleWasabiWaiting: false,
+          tripleWasabiWaiting: false,
         }
       }
       dCounter++;
@@ -421,11 +771,13 @@ class App extends React.Component {
       }
       if (hands[0].length <= 1) {
         setTimeout(() => {
-          if (this.state.roundScoreCalculated === false) {
+          if (this.state.roundScoreCalculated !== true) {
             this.calculateScore();
           }
-          this.setState({ roundEnd: true })
-          this.setState({ roundScoreCalculated: true })
+          this.setState({ 
+            roundEnd: true,
+            roundScoreCalculated: true
+          })
         }, 1000)
       } else {
         users[key].playedCards.ready = false;
@@ -447,7 +799,7 @@ class App extends React.Component {
       let tempura = 0;
       let sashimi = 0;
       let makiScore = 0;
-      let teaPlayed = false;
+      let teaCount = 0;
       let desserts = 0;
       const famCount = {};
       if (users[user].score) {
@@ -488,7 +840,7 @@ class App extends React.Component {
             makiScore = makiScore + cards[card.card].value;
             card.scored = true;
           } else if (cards[card.card].family === 'tea') {
-            teaPlayed = true;
+            teaCount = teaCount + 1;
           } else if (round === 3 && cards[card.card].family === 'ice-cream') {
             desserts = desserts + 1;
             card.scored = true;
@@ -507,13 +859,16 @@ class App extends React.Component {
       if (makiScore > 0) {
         makiCompare[user] = makiScore;
       }
-      if (teaPlayed) {
+      if (teaCount > 0) {
         const famCountOrdered = Object.entries(famCount).sort(function (a, b) {
           const aPrice = a[1];
           const bPrice = b[1];
           return bPrice - aPrice;
         });
-        score = score + famCountOrdered[0][1];
+        score = score + (famCountOrdered[0][1] * teaCount);
+        console.log(user, teaCount)
+        console.log(user, famCountOrdered[0])
+        console.log(user, famCountOrdered[0][1] * teaCount)
       }
       if (desserts >= 4) {
         const dessertScore = Math.floor(desserts / 4) * 12;

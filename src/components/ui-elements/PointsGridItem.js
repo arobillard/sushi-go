@@ -8,14 +8,16 @@ class PointsGridItem extends React.Component {
 
   componentDidMount() {
     let updateScore = this.state.score;
-    const scoreInterval = setInterval(() => {
+    var scoreInterval = setInterval(() => {
       updateScore = updateScore + 1;
       this.setState({ score: updateScore })
     }, 50);
     setTimeout(() => {
       clearInterval(scoreInterval);
-    }, 50 * this.props.score + 1)
+      this.setState({ score: this.props.score })
+    }, 50 * this.props.score + 50)
   }
+
 
   render() {
     const userData = this.props.userData;
