@@ -721,7 +721,8 @@
 
       @media only screen and (min-width: 800px) {
       
-        &.opponent-amount-7 {
+        &.opponent-amount-7,
+        &.opponent-amount-6 {
           .card-column {
             flex-direction: row;
             flex-wrap: wrap;
@@ -816,7 +817,8 @@
 
   .card-panels { 
     .user-cards {
-      &.opponent-amount-7 {
+      &.opponent-amount-7,
+      &.opponent-amount-6 {
         grid-template-columns: repeat(2, 1fr);
       }
     }

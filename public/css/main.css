@@ -1643,36 +1643,36 @@ h6, .headline-6 {
   }
 }
 @media only screen and (max-width: 59.999em) and (min-width: 800px) {
-  .card-panels .user-cards.opponent-amount-7 .card-column {
+  .card-panels .user-cards.opponent-amount-7 .card-column, .card-panels .user-cards.opponent-amount-6 .card-column {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score, .card-panels .user-cards.opponent-amount-6 .card-column .panel-score {
     flex-grow: 2;
     order: 0;
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score::before {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score::before, .card-panels .user-cards.opponent-amount-6 .card-column .panel-score::before {
     transform: translateY(-2rem) scale(0);
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score.ready::before {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-score.ready::before, .card-panels .user-cards.opponent-amount-6 .card-column .panel-score.ready::before {
     transform: translateY(-2rem) scale(1);
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards, .card-panels .user-cards.opponent-amount-6 .card-column .panel-cards {
     min-height: auto;
     display: flex;
     align-items: center;
     width: 100%;
     order: 2;
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .sushi-family:not(:last-child) {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .sushi-family:not(:last-child), .card-panels .user-cards.opponent-amount-6 .card-column .panel-cards .sushi-family:not(:last-child) {
     margin-bottom: 0;
     margin-right: 0.5rem;
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .card-sushi.tea:not(:first-child), .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .card-sushi.wasabi:not(:first-child) {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .card-sushi.tea:not(:first-child), .card-panels .user-cards.opponent-amount-7 .card-column .panel-cards .card-sushi.wasabi:not(:first-child), .card-panels .user-cards.opponent-amount-6 .card-column .panel-cards .card-sushi.tea:not(:first-child), .card-panels .user-cards.opponent-amount-6 .card-column .panel-cards .card-sushi.wasabi:not(:first-child) {
     margin-left: 0.5rem;
   }
-  .card-panels .user-cards.opponent-amount-7 .card-column .panel-dessert {
+  .card-panels .user-cards.opponent-amount-7 .card-column .panel-dessert, .card-panels .user-cards.opponent-amount-6 .card-column .panel-dessert {
     min-width: 4rem;
     min-height: 4rem;
     height: auto;
@@ -1720,7 +1720,7 @@ h6, .headline-6 {
   }
 }
 @media only screen and (max-width: 799px) {
-  .card-panels .user-cards.opponent-amount-7 {
+  .card-panels .user-cards.opponent-amount-7, .card-panels .user-cards.opponent-amount-6 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
