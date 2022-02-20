@@ -6,6 +6,7 @@ import { deck, cards } from '../cardData'
 import Lobby from './ui-elements/Lobby';
 import GameBoard from './ui-elements/GameBoard';
 import Settings from './ui-elements/Settings';
+import { DateTime } from 'luxon';
 
 class App extends React.Component {
 
@@ -54,6 +55,7 @@ class App extends React.Component {
     settingsDisplayed: false,
     misoPlayed: false,
     roundScoreCalculated: false,
+    gameTime: Date.now()
   }
 
   componentDidMount() {
@@ -66,6 +68,7 @@ class App extends React.Component {
         gameStart: savedState.gameStart,
         round: savedState.round,
         hands: savedState.hands,
+        gameTime: Date.now()
       })
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/deck`, {
         context: this,
@@ -99,6 +102,10 @@ class App extends React.Component {
         context: this,
         state: 'roundScoreCalculated'
       });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameTime`, {
+        context: this,
+        state: 'gameTime'
+      });
     } else {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/deck`, {
         context: this,
@@ -131,6 +138,10 @@ class App extends React.Component {
       this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/roundScoreCalculated`, {
         context: this,
         state: 'roundScoreCalculated'
+      });
+      this.ref = base.syncState(`sushi-go/${this.props.match.params.gamecode}/gameTime`, {
+        context: this,
+        state: 'gameTime'
       });
       // console.log(this.state.gameStart)
       // if (this.state.gameStart === {}) {
@@ -189,8 +200,9 @@ class App extends React.Component {
     const fullDeck = deck();
     this.newRound(userCount, fullDeck, true);
     this.setState({
-      gameStart: true
-     });
+      gameStart: true,
+      gameTime: DateTime.now().toISODate()
+    });
   }
 
   startNewRound = () => {

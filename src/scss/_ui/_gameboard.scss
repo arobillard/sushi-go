@@ -360,6 +360,68 @@
           }
         }
       }
+      @media only screen and (max-width: 37.999em) {
+      
+        flex-wrap: wrap;
+        height: auto;
+        .panel-score {
+          flex-direction: row;
+          width: 100%;
+          padding: .5rem 1rem;
+          .score {
+            margin-bottom: -.5rem;
+          }
+          .host-badge {
+            font-size: 1.65rem;
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+        .panel-cards {
+          padding: 1rem;
+        }
+      }
+      @media only screen and (max-width: 525px) {
+      
+        .panel-dessert,
+        .panel-score {
+          order: 0;
+        }
+        .panel-cards {
+          order: 1;
+        }
+        .panel-score {
+          width: auto;
+          flex-grow: 2;
+        }
+        .panel-dessert {
+          min-width: 4rem;
+          min-height: 4rem;
+          height: auto;
+          width: auto;
+          justify-content: center;
+          align-items: center;
+          padding: .5rem;
+          h3 {
+            display: none;
+          }
+          .dessert-cards {
+            .card-sushi {
+              width: 2rem;
+              height: 3rem;
+              border-radius: 5px;
+              transform: none;
+              + .card-sushi {
+                margin-left: -1.375rem;
+              }
+              .card-score-desc {
+                display: none;
+              }
+            }
+          }
+        }
+      
+      }
     }
   }
   .user-cards {
